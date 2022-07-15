@@ -5,9 +5,9 @@ public class Tile : MonoBehaviour
 {
     [SerializeField]
     public TileData Data;
-    public int EdgeLength;
 
     private const float sqrtOfThree = 1.73205080757f;
+    private const float squishFactor = 1.2777f;
     // Start is called before the first frame update
     public void Start()
     {
@@ -27,8 +27,10 @@ public class Tile : MonoBehaviour
     {
         return new Vector2
         {
-            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength,
-            y = ((-sqrtOfThree / 6) * Data.A + (sqrtOfThree / 3) * Data.B - (sqrtOfThree / 6) * Data.C) * EdgeLength
+            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength * squishFactor,
+            y = (-sqrtOfThree / 6 * Data.A + sqrtOfThree / 3 * Data.B - sqrtOfThree / 6 * Data.C) * EdgeLength 
         };
     }
+
+    private float EdgeLength => transform.localScale.x * 0.24f;
 }
