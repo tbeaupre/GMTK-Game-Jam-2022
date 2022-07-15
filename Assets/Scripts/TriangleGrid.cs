@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Grid
+public class TriangleGrid
 {
     public List<TileData> Tiles { get; set; }
     public int Radius { get; set; }
-    public Grid(int radius)
+    public TriangleGrid(int radius)
     {
         Tiles = new List<TileData>();
         Radius = radius;
@@ -17,14 +17,18 @@ public class Grid
             {
                 foreach (int c in Enumerable.Range(-radius, radius))
                 {
-                    Tiles.Add(new TileData(a, b, c));
+                    if (a + b + c == 1 || a + b + c == 2)
+                    {
+                        Tiles.Add(new TileData(a, b, c));
+                    }
                 }
             }
         }
     }
 
     public bool WithinRadius(int a, int b, int c) => Math.Abs(a) > Radius || Math.Abs(b) > Radius || Math.Abs(c) > Radius;
-    public void AssertWithinRadius(int a, int b, int c) { 
+    public void AssertWithinRadius(int a, int b, int c) 
+    { 
         if (!WithinRadius(a, b, c))
         {
             throw new Exception($"a, b, or c cannot exceed the radius of the grid: {Radius}");
@@ -52,7 +56,6 @@ public class Grid
             if (WithinRadius(tile.A, tile.B - 1, tile.C)) yield return GetTileData(tile.A, tile.B - 1, tile.C);
             if (WithinRadius(tile.A, tile.B, tile.C - 1)) yield return GetTileData(tile.A, tile.B, tile.C - 1);
         }
-
         else
         {
             if (WithinRadius(tile.A + 1, tile.B, tile.C)) yield return GetTileData(tile.A + 1, tile.B, tile.C);
@@ -62,11 +65,12 @@ public class Grid
     }
 }
 
-public class TileData
+[Serializable]
+public struct TileData
 {
-    public int A { get; set; }
-    public int B { get; set; }
-    public int C { get; set; }
+    public int A;
+    public int B;
+    public int C;
 
     public TileData(int a, int b, int c)
     {
