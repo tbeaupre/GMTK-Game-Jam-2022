@@ -27,7 +27,7 @@ public class Tile : MonoBehaviour
     {
         return new Vector2
         {
-            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength * squishFactor,
+            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength,
             y = (-sqrtOfThree / 6 * Data.A + sqrtOfThree / 3 * Data.B - sqrtOfThree / 6 * Data.C) * EdgeLength 
         };
     }
