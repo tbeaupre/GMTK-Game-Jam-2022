@@ -14,6 +14,7 @@ public class Tile : MonoBehaviour
         transform.position = Center();
         if (!Data.PointsUp)
         {
+            Debug.Log($"{Data.A}, {Data.B}, {Data.C}");
             transform.Rotate(new Vector3(0, 0, 180));
         }
     }
@@ -27,10 +28,10 @@ public class Tile : MonoBehaviour
     {
         return new Vector2
         {
-            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength,
+            x = ((0.5f * Data.A) + (-0.5f * Data.C)) * EdgeLength * squishFactor,
             y = (-sqrtOfThree / 6 * Data.A + sqrtOfThree / 3 * Data.B - sqrtOfThree / 6 * Data.C) * EdgeLength 
         };
     }
 
-    private float EdgeLength => transform.localScale.x * 0.24f;
+    private float EdgeLength => transform.localScale.x * 0.24f; // arbitrary spacing factor. feel free to mess w this
 }

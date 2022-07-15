@@ -5,25 +5,29 @@ using UnityEngine;
 
 public class TriangleGrid
 {
-    public List<TileData> Tiles { get; set; }
+    public List<TileData> Tiles { get; set; } = new List<TileData>();
     public int Radius { get; set; }
     public TriangleGrid(int radius)
     {
-        Tiles = new List<TileData>();
         Radius = radius;
-        foreach (int a in Enumerable.Range(-radius, radius))
+        var bounds = Enumerable.Range(-radius, radius * 2).ToList();
+
+        foreach (int a in bounds)
         {
-            foreach (int b in Enumerable.Range(-radius, radius))
+            foreach (int b in bounds)
             {
-                foreach (int c in Enumerable.Range(-radius, radius))
+                foreach (int c in bounds)
                 {
                     if (a + b + c == 1 || a + b + c == 2)
                     {
+                        var d = new TileData(a, b, c);
+                        Debug.Log($"ADD: {a}, {b}, {c}, {d.PointsUp}");
                         Tiles.Add(new TileData(a, b, c));
                     }
                 }
             }
         }
+
     }
 
     public bool WithinRadius(int a, int b, int c) => Math.Abs(a) > Radius || Math.Abs(b) > Radius || Math.Abs(c) > Radius;
