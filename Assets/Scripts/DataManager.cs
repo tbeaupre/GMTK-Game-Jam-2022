@@ -7,7 +7,8 @@ public class DataManager : MonoBehaviour
 {
     public int DefaultMapRadius;
     public SerializedPlayerData PlayerData;
-    public string levelName;
+    public string levelSetName;
+    public int levelValue;
 
     private List<TileData> initialTiles = null;
     // Start is called before the first frame update
@@ -21,6 +22,12 @@ public class DataManager : MonoBehaviour
         {
             LoadDefault();
         }
+    }
+
+    public void LoadNext()
+    {
+        levelValue++;
+        LoadGame();
     }
 
     private void LoadGame()
@@ -48,6 +55,6 @@ public class DataManager : MonoBehaviour
         return new TriangleGrid(DefaultMapRadius);
     }
 
-    private string MapPath => Application.dataPath + "/Maps/" + levelName + ".json";
+    private string MapPath => $"{Application.dataPath}/Maps/{levelSetName}_{levelValue}.json";
 
 }

@@ -37,9 +37,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CleanUpTiles();
-
         if (isDebugMode) HandleDebugFunctions();
-
         HandlePlayerFunctions();
     }
 
@@ -65,7 +63,9 @@ public class GameManager : MonoBehaviour
         if (isOverGoal) goalTileToDelete = activeTile;
         if (activeMap.GetRemainingColoredTiles().Count() == 1 && isOverGoal)
         {
-            Debug.Log("WIN");
+            dataManager.LoadNext();
+            Destroy(playerObject);
+            Init();
         }
     }
 
