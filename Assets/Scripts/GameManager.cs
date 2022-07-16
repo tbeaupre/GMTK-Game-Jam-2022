@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
         }
 
         var activeTile = activeMap.GetTileData(player.tile);
-        if (activeTile == null) return; // not sure why this would happen but just in case
+        if (activeTile == null || isDebugMode) return; // not sure why this would happen but just in case
 
         if (goalTileToDelete != null && !activeTile.PositionalMatch(goalTileToDelete)) //player has recently left a goal tile
         {
