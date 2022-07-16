@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -29,20 +30,13 @@ public class TriangleGrid
         Tiles = tiles;
     }
 
+    public TileData GetTileData(TileData tileData) => Tiles.FirstOrDefault(t => t.PositionalMatch(tileData));
+    public TileData GetTileData(int a, int b, int c) => Tiles.FirstOrDefault(t => t.PositionalMatch(a, b, c));
 
-    public TileData? GetTileData(int a, int b, int c)
-    {
-        var tile = Tiles.FirstOrDefault(t => t.A == a && t.B == b && t.C == c);
-        return tile.IsValid ? tile : null;
-    }
-
-    public IEnumerable<TileData?> GetNeighbors(int a, int b, int c)
-    {
-        return GetNeighbors(new TileData(a, b, c));
-    }
+    public IEnumerable<TileData> GetNeighbors(int a, int b, int c) => GetNeighbors(new TileData(a, b, c));
 
     // Probably want to ToList() this as it does not materialize
-    public IEnumerable<TileData?> GetNeighbors(TileData tile)
+    public IEnumerable<TileData> GetNeighbors(TileData tile)
     {
         if (tile.PointsUp)
         {
@@ -58,37 +52,10 @@ public class TriangleGrid
         }
     }
 
-    public TileData ToggleTile(int a, int b, int c)
-    {
-        var index = Tiles.FindIndex(t => t.A == a && t.B == b && t.C == c);
-        if (index >= 0)
-        {
-            var t = Tiles.ElementAt(index);
-            Tiles.RemoveAt(index);
-            TileData newTile = new TileData(a, b, c, !t.IsDeleted);
-            Tiles.Add(newTile);
-            return newTile;
-        }
-        return new TileData(0, 0, 1);
-    }
-
-    public TileData IncrementGoal(int a, int b, int c)
-    {
-        var index = Tiles.FindIndex(t => t.A == a && t.B == b && t.C == c);
-        if (index >= 0)
-        {
-            var t = Tiles.ElementAt(index);
-            Tiles.RemoveAt(index);
-            TileData newTile = new TileData(a, b, c, t.IsDeleted, t.Goal + 1);
-            Tiles.Add(newTile);
-            return newTile;
-        }
-        return new TileData(0, 0, 1);
-    }
 }
 
-[System.Serializable]
-public struct TileData
+[Serializable]
+public class TileData
 {
     public int A;
     public int B;
@@ -102,7 +69,17 @@ public struct TileData
         B = b;
         C = c;
         IsDeleted = isDeleted;
-        Goal = goal;
+        Goal = goal % 8;
+    }
+
+    public bool PositionalMatch(int a, int b, int c)
+    {
+        return a == A && b == B && c == C;
+    }
+
+    public bool PositionalMatch(TileData tile)
+    {
+        return PositionalMatch(tile.A, tile.B, tile.C);
     }
 
     public bool PointsUp => A + B + C == 2;

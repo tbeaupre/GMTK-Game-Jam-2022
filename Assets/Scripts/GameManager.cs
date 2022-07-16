@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -5,6 +7,7 @@ public class GameManager : MonoBehaviour
     public DataManager dataManager;
     public TileFactory tileFactory;
     public Player player;
+    private List<GameObject> tiles = new List<GameObject>();
     public bool isDebugMode;
 
     // Start is called before the first frame update
@@ -16,7 +19,11 @@ public class GameManager : MonoBehaviour
 
     private void Init()
     {
-        tileFactory.DrawTiles(dataManager.Grid);
+        foreach(GameObject tile in tiles)
+        {
+            Object.Destroy(tile);
+        }
+        tiles = tileFactory.DrawTiles(dataManager.Grid).ToList();
         player.Init(dataManager.PlayerData);
     }
 
@@ -32,14 +39,7 @@ public class GameManager : MonoBehaviour
                 GameObject target = hit.transform.gameObject;
                 if (target.TryGetComponent<Tile>(out var tile))
                 {
-                    var tileData = tile.Data;
-                    TileData newTileData;
-                    if (tileData.Goal == 8 || tileData.IsDeleted)
-                        newTileData = dataManager.Grid.ToggleTile(tileData.A, tileData.B, tileData.C);
-                    else
-                        newTileData = dataManager.Grid.IncrementGoal(tileData.A, tileData.B, tileData.C);
-
-                    tile.UpdateVisuals(newTileData.IsDeleted, newTileData.Goal);
+                    HandleTileClick(tile);
                 }
             }
         }
@@ -59,15 +59,31 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void HandleTileClick(Tile tile)
+    {
+        if (Input.GetKey(KeyCode.LeftControl))
+        {
+            tile.Data.IsDeleted = true;
+            return;
+        }
+
+        tile.Data.IsDeleted = false;
+        if (Input.GetKey(KeyCode.Alpha0)) tile.Data.Goal = 0;
+        if (Input.GetKey(KeyCode.Alpha1)) tile.Data.Goal = 1;
+        if (Input.GetKey(KeyCode.Alpha2)) tile.Data.Goal = 2;
+        if (Input.GetKey(KeyCode.Alpha3)) tile.Data.Goal = 3;
+        if (Input.GetKey(KeyCode.Alpha4)) tile.Data.Goal = 4;
+        if (Input.GetKey(KeyCode.Alpha5)) tile.Data.Goal = 5;
+        if (Input.GetKey(KeyCode.Alpha6)) tile.Data.Goal = 6;
+        if (Input.GetKey(KeyCode.Alpha7)) tile.Data.Goal = 7;
+        if (Input.GetKey(KeyCode.Alpha8)) tile.Data.Goal = 8;
+
+    }
+
     bool IsPlayerDead()
     {
-        Debug.Log("Checking...");
         var playerTile = player.GetTileData;
         var boardTile = dataManager.Grid.GetTileData(playerTile.A, playerTile.B, playerTile.C);
-        if(boardTile.HasValue)
-        {
-            TileUtils.PrintTile(boardTile.Value);
-        }
-        return !boardTile.HasValue || boardTile.Value.IsDeleted;
+        return boardTile == null || boardTile.IsDeleted;
     }
 }

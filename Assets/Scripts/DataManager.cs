@@ -21,10 +21,10 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public void LoadGame()
+    private void LoadGame()
     {
-        string path = Application.dataPath + "/Maps/" + levelName + ".json";
-        string fileContents = File.ReadAllText(path);
+        Debug.Log($"Loading from {MapPath}...");
+        string fileContents = File.ReadAllText(MapPath);
         SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(fileContents);
         PlayerData = mapData.playerData;
         Grid = new TriangleGrid(mapData.tiles.ToList());
@@ -38,7 +38,13 @@ public class DataManager : MonoBehaviour
 
     public void SaveGame(Player player)
     {
+        Debug.Log($"Saving to {MapPath}...");
         string jsonData = JsonUtility.ToJson(new SerializedGameData(Grid, player), true);
-        File.WriteAllText(Application.persistentDataPath + "/" + levelName + ".json", jsonData);
+        File.WriteAllText(MapPath, jsonData);
     }
+
+    private string MapPath => Application.dataPath + "/Maps/" + levelName + ".json";
+
+
+
 }

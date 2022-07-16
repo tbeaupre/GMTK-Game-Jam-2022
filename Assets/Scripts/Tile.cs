@@ -21,14 +21,11 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        UpdateVisuals(Data.IsDeleted, Data.Goal);
+        UpdateVisuals();
     }
 
-    public void UpdateVisuals(bool shouldDelete = false, int goal = 0)
+    public void UpdateVisuals()
     {
-        Data.IsDeleted = shouldDelete;
-        Data.Goal = goal;
-
         transform.position = TileUtils.GetPosition(Data);
         transform.localEulerAngles = new Vector3(0, 0, Data.PointsUp ? 0 : 180);
 
