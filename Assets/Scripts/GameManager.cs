@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public DataManager dataManager;
     public TileFactory tileFactory;
+    public AudioManager AudioMgmt;
     public Player player;
     public bool isDebugMode;
 
@@ -17,6 +18,7 @@ public class GameManager : MonoBehaviour
     private TriangleGrid activeMap;
 
     private TileData goalTileToDelete = null;
+
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,29 @@ public class GameManager : MonoBehaviour
         CleanUpTiles();
         if (isDebugMode) HandleDebugFunctions();
         HandlePlayerFunctions();
+        HandlePlayerInputs();
+    }
+
+    private void HandlePlayerInputs()
+    {
+        var direction = getDirectionFromInput();
+        if (direction >= 0)
+        {
+            var moveSuccess = player.TryMove(direction);
+            if (moveSuccess)
+            {
+                AudioMgmt.PlaySFX(GetAppropriateSoundEffectForSuchASpecialOccassion());
+            }
+        }
+    }
+
+    private SFX_TYPE GetAppropriateSoundEffectForSuchASpecialOccassion()
+    {
+        var activeTile = activeMap.GetTileData(player.tile);
+        var isOverGoal = player.GetOppositeSide() == activeTile.Goal;
+        if (isOverGoal) return SFX_TYPE.CLINK;
+        if (IsPlayerDead()) return SFX_TYPE.FLOORBOARD;
+        return SFX_TYPE.CLUNK;
     }
 
     private void HandlePlayerFunctions()
@@ -50,15 +75,15 @@ public class GameManager : MonoBehaviour
             Init();
         }
 
-        var activeTile = activeMap.GetTileData(player.tile);
-        if (activeTile == null || isDebugMode) return; // not sure why this would happen but just in case
+        if (isDebugMode) return; // not sure why this would happen but just in case
 
-        if (goalTileToDelete != null && !activeTile.PositionalMatch(goalTileToDelete)) //player has recently left a goal tile
+        if (goalTileToDelete != null && !player.tile.PositionalMatch(goalTileToDelete)) //player has recently left a goal tile
         {
             goalTileToDelete.IsDeleted = true;
             goalTileToDelete = null;
         }
 
+        var activeTile = activeMap.GetTileData(player.tile);
         var isOverGoal = player.GetOppositeSide() == activeTile.Goal;
         if (isOverGoal) goalTileToDelete = activeTile;
         if (activeMap.GetRemainingColoredTiles().Count() == 1 && isOverGoal)
@@ -96,6 +121,18 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha8)) tile.Data.Goal = 8;
         if (Input.GetKey(KeyCode.LeftShift)) tile.Data.Goal = player.GetOppositeSide();
     }
+
+    private int getDirectionFromInput()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow)) return 0;
+        if (Input.GetKeyDown(KeyCode.RightArrow) && player.PointsDown) return 1;
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !player.PointsDown) return 2;
+        if (Input.GetKeyDown(KeyCode.DownArrow)) return 3;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !player.PointsDown) return 4;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && player.PointsDown) return 5;
+        return -1;
+    }
+
 
     private bool IsPlayerDead()
     {
