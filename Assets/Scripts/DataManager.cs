@@ -24,13 +24,6 @@ public class DataManager : MonoBehaviour
     public void LoadGame()
     {
         string path = Application.dataPath + "/Maps/" + levelName + ".json";
-        if (!File.Exists(path))
-        {
-            Debug.LogWarning("Data file not found at: " + path);
-            LoadDefault();
-            return;
-        }
-
         string fileContents = File.ReadAllText(path);
         SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(fileContents);
         PlayerData = mapData.playerData;
@@ -39,8 +32,8 @@ public class DataManager : MonoBehaviour
 
     private void LoadDefault()
     {
-        Grid = new TriangleGrid(3);
         PlayerData = new SerializedPlayerData(new Player());
+        Grid = new TriangleGrid(3);
     }
 
     public void SaveGame(Player player)

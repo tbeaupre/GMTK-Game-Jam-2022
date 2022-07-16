@@ -11,6 +11,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+        Init();
+    }
+
+    private void Init()
+    {
         tileFactory.DrawTiles(dataManager.Grid);
         player.Init(dataManager.PlayerData);
     }
@@ -48,5 +53,21 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("WIN!");
         }
+
+        if (IsPlayerDead()) {
+            Init();
+        }
+    }
+
+    bool IsPlayerDead()
+    {
+        Debug.Log("Checking...");
+        var playerTile = player.GetTileData;
+        var boardTile = dataManager.Grid.GetTileData(playerTile.A, playerTile.B, playerTile.C);
+        if(boardTile.HasValue)
+        {
+            TileUtils.PrintTile(boardTile.Value);
+        }
+        return !boardTile.HasValue || boardTile.Value.IsDeleted;
     }
 }
