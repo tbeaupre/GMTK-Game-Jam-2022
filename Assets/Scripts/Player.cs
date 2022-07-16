@@ -19,55 +19,42 @@ public class Player : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
-        var PointsDown = tile.PointsUp; // its going to be the opposite of whatever tile it's on
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        var direction = getDirectionFromInput();
+        var nextSide = direction >= 0 ? RotateInDirection(direction) : null;
+        if (nextSide != null)
         {
-            side = RotateInDirection(side, sideRotation, 0);
+            AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
+            side = nextSide ?? side;
+            sideRotation = (sideRotation + 6) % 6;
+            ChangeFrame(side, sideRotation);
+            transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
+            UpdatePosition();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && PointsDown)
-        {
-            side = RotateInDirection(side, sideRotation, 1);
-        }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) && !PointsDown)
-        {
-            side = RotateInDirection(side, sideRotation, 2);
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            side = RotateInDirection(side, sideRotation, 3);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !PointsDown)
-        {
-            side = RotateInDirection(side, sideRotation, 4);
-        }
-        else if (Input.GetKeyDown(KeyCode.LeftArrow) && PointsDown)
-        {
-            side = RotateInDirection(side, sideRotation, 5);
-        }
-
-        sideRotation = (sideRotation + 6) % 6;
-        ChangeFrame(side, sideRotation);
-        transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
-        UpdatePosition();
     }
 
-    int RotateInDirection(int side, int rotation, int direction)
+    private int getDirectionFromInput()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow)) return 0;
+        if (Input.GetKeyDown(KeyCode.RightArrow) && PointsDown) return 1;
+        if (Input.GetKeyDown(KeyCode.RightArrow) && !PointsDown) return 2;
+        if (Input.GetKeyDown(KeyCode.DownArrow)) return 3;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && !PointsDown) return 4;
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && PointsDown) return 5;
+        return -1;
+    }
+
+    private bool PointsDown => tile.PointsUp; // its going to be the opposite of whatever tile it's on
+
+    int? RotateInDirection(int direction)
     {
         // Debug.Log($"{side} {rotation} {direction}");
 
         // Don't do anything if face is pressed
-        if ((rotation + direction) % 2 == 1)
-            return side;
-
-        AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
+        if ((sideRotation + direction) % 2 == 1)
+            return null;
 
         switch (direction)
         {
@@ -91,9 +78,9 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        if (((direction - rotation + 6) % 6) == 0)
+        if (((direction - sideRotation + 6) % 6) == 0)
         {
-            sideRotation += 3;
+            this.sideRotation += 3;
             return side switch {
                 1 => 2,
                 2 => 1,
@@ -105,9 +92,9 @@ public class Player : MonoBehaviour
                 _ => 7
             };
         }
-        if (((direction - rotation + 6) % 6) == 2)
+        if (((direction - sideRotation + 6) % 6) == 2)
         {
-            sideRotation += 1;
+            this.sideRotation += 1;
             return side switch {
                 1 => 4,
                 2 => 7,
@@ -119,7 +106,7 @@ public class Player : MonoBehaviour
                 _ => 1
             };
         }
-        sideRotation -= 1;
+        this.sideRotation -= 1;
         return side switch {
             1 => 8,
             2 => 3,
