@@ -158,6 +158,12 @@ public class Player : MonoBehaviour
         this.sideRotation = rotation;
         (a, b, c) = (tile.A, tile.B, tile.C);
     }
+    public void Init(SerializedPlayerData playerData)
+    {
+        this.side = playerData.side;
+        this.sideRotation = playerData.rotation;
+        (a, b, c) = (playerData.tile.A, playerData.tile.B, playerData.tile.C);
+    }
 
     public TileData GetTileData => new TileData(a, b, c);
 }

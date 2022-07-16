@@ -1,18 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
-
-[System.Serializable]
-public class SerializableTileGrid
-{
-    public TileData[] tiles;
-
-    public SerializableTileGrid(TriangleGrid grid)
-    {
-        tiles = grid.Tiles.ToArray();
-    }
-}
 
 public class TriangleGrid
 {
@@ -40,10 +28,6 @@ public class TriangleGrid
         Tiles = tiles;
     }
 
-    public TriangleGrid(SerializableTileGrid grid)
-    {
-        Tiles = new List<TileData>(grid.tiles);
-    }
 
     public TileData? GetTileData(int a, int b, int c)
     {
