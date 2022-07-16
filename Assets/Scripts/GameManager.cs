@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject playerPrefab;
     public DataManager dataManager;
     public TileFactory tileFactory;
-    public Player player;
-    private List<GameObject> tiles = new List<GameObject>();
     public bool isDebugMode;
+
+    private List<GameObject> tiles = new List<GameObject>();
+    private GameObject playerObject;
+    private Player player;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +22,14 @@ public class GameManager : MonoBehaviour
 
     private void Init()
     {
-        foreach(GameObject tile in tiles)
+        foreach (GameObject tile in tiles)
         {
             Object.Destroy(tile);
         }
         tiles = tileFactory.DrawTiles(dataManager.Grid).ToList();
+
+        playerObject = Instantiate(playerPrefab);
+        player = playerObject.GetComponent<Player>();
         player.Init(dataManager.PlayerData);
     }
 
@@ -55,6 +61,8 @@ public class GameManager : MonoBehaviour
         }
 
         if (IsPlayerDead()) {
+            playerObject.AddComponent<DyingPlayer>();
+            player.enabled = false;
             Init();
         }
     }

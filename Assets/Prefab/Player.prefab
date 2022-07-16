@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6279251613177683679}
   - component: {fileID: 6279251613177683678}
   - component: {fileID: 6279251613177683677}
+  - component: {fileID: 1908260629420137075}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -97,12 +98,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 280fa4291e993f944b0d520c7b6e7cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  a: 4
-  b: -7
-  c: 4
+  tile:
+    A: 0
+    B: 0
+    C: 0
+    IsDeleted: 0
+    Goal: 0
   side: 1
   sideRotation: 0
-  isUpsideDown: 0
   AudioMgmt: {fileID: 0}
   sprites:
   - {fileID: 2131646627, guid: 6f14cf40cdf08894bba00024664c306b, type: 3}
@@ -129,3 +132,16 @@ MonoBehaviour:
   - {fileID: 2011546505, guid: 6f14cf40cdf08894bba00024664c306b, type: 3}
   - {fileID: 1774652315, guid: 6f14cf40cdf08894bba00024664c306b, type: 3}
   - {fileID: 180903140, guid: 6f14cf40cdf08894bba00024664c306b, type: 3}
+--- !u!114 &1908260629420137075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6279251613177683676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8503b16e4d95794b916f922b7c12033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXSources: []
