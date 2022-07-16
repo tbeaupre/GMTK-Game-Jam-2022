@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class GameManager : MonoBehaviour
     private List<GameObject> tileRefs = new List<GameObject>();
     private List<GameObject> oldRefs = new List<GameObject>();
     private TriangleGrid activeMap;
+
+    private TileData goalTileToDelete = null;
 
     // Start is called before the first frame update
     void Start()
@@ -34,16 +37,35 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CleanUpTiles();
-        if (isDebugMode) HandleDebugFunctions();
-        if (IsWin)
-        {
-            Debug.Log("WIN!");
-        }
 
-        if (IsPlayerDead()) {
+        if (isDebugMode) HandleDebugFunctions();
+
+        HandlePlayerFunctions();
+    }
+
+    private void HandlePlayerFunctions()
+    {
+        if (IsPlayerDead())
+        {
             playerObject.AddComponent<DyingPlayer>();
             player.enabled = false;
             Init();
+        }
+
+        var activeTile = activeMap.GetTileData(player.tile);
+        if (activeTile == null) return; // not sure why this would happen but just in case
+
+        if (goalTileToDelete != null && !activeTile.PositionalMatch(goalTileToDelete)) //player has recently left a goal tile
+        {
+            goalTileToDelete.IsDeleted = true;
+            goalTileToDelete = null;
+        }
+
+        var isOverGoal = player.GetOppositeSide() == activeTile.Goal;
+        if (isOverGoal) goalTileToDelete = activeTile;
+        if (activeMap.GetRemainingColoredTiles().Count() == 1 && isOverGoal)
+        {
+            Debug.Log("WIN");
         }
     }
 
@@ -53,7 +75,6 @@ public class GameManager : MonoBehaviour
         oldRefs.Clear();
     }
 
-    private bool IsWin => player.GetOppositeSide() == activeMap.GetTileData(player.tile)?.Goal;
 
     private void HandleTileClick(Tile tile)
     {
