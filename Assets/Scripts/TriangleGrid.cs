@@ -15,9 +15,10 @@ public class TriangleGrid
             {
                 foreach (int c in bounds)
                 {
-                    if (a + b + c == 1 || a + b + c == 2)
+                    var tile = new TileData(a, b, c);
+                    if (tile.IsValid)
                     {
-                        Tiles.Add(new TileData(a, b, c));
+                        Tiles.Add(tile);
                     }
                 }
             }
@@ -31,7 +32,8 @@ public class TriangleGrid
 
     public TileData? GetTileData(int a, int b, int c)
     {
-        return Tiles.FirstOrDefault(t => t.A == a && t.B == b && t.C == c);
+        var tile = Tiles.FirstOrDefault(t => t.A == a && t.B == b && t.C == c);
+        return tile.IsValid ? tile : null;
     }
 
     public IEnumerable<TileData?> GetNeighbors(int a, int b, int c)
@@ -104,4 +106,5 @@ public struct TileData
     }
 
     public bool PointsUp => A + B + C == 2;
+    public bool IsValid => A + B + C == 2 || A + B + C == 1;
 }
