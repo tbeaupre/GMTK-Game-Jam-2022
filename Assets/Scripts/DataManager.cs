@@ -25,11 +25,11 @@ public class DataManager : MonoBehaviour
 
     public TriangleGrid LoadGrid()
     {
-        string path = Application.persistentDataPath + "/" + levelName + ".json";
+        string path = Application.dataPath + "/Maps/" + levelName + ".json";
         if (!File.Exists(path))
         {
             Debug.LogWarning("Data file not found at: " + path);
-            Grid = new TriangleGrid(9);
+            Grid = new TriangleGrid(3);
             return Grid;
         }
 

@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int a = 4;
-    public int b = -7;
-    public int c = 4;
+    public int a = 1;
+    public int b = 1;
+    public int c = 0;
 
-    public int side;
-    public int sideRotation;
-    public bool isUpsideDown;
+    public int side = 1;
+    public int sideRotation = 1;
     public AudioManager AudioMgmt;
     public Sprite[] sprites;
 
@@ -57,9 +56,8 @@ public class Player : MonoBehaviour
 
         sideRotation = (sideRotation + 6) % 6;
         ChangeFrame(side, sideRotation);
-        isUpsideDown = sideRotation % 2 == 1;
-        transform.localEulerAngles = new Vector3(0, 0, isUpsideDown ? 180 : 0);
-        UpdatePosition();
+        transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
+        UpdatePosition(new TileData(a,b,c));
     }
 
     int RotateInDirection(int side, int rotation, int direction)
@@ -148,9 +146,12 @@ public class Player : MonoBehaviour
         spriteRenderer.sprite = sprites[correctedY * 8 + x - 1];
     }
 
-    void UpdatePosition()
+    void UpdatePosition(TileData tileData)
     {
-        Vector2 pos2d = TileUtils.GetPosition(new TileData(a, b, c));
+        Vector2 pos2d = TileUtils.GetPosition(tileData);
+        a = tileData.A;
+        b = tileData.B;
+        c = tileData.C;
         transform.position = new Vector3(pos2d.x, pos2d.y, -1);
     }
 }

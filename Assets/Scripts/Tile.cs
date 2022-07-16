@@ -47,4 +47,6 @@ public static class TileUtils
             y = ((-0.5f * tileData.A) + tileData.B + (-0.5f * tileData.C)) * height
         };
     }
+
+    public static void PrintTile(TileData tile, string message = "Debug") => Debug.Log($"{message}: {tile.A}, {tile.B}, {tile.C}");
 }
