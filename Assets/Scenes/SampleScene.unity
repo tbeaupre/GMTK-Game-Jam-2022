@@ -222,7 +222,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 1.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421,6 +421,10 @@ PrefabInstance:
       propertyPath: AudioMgmt
       value: 
       objectReference: {fileID: 1079201314}
+    - target: {fileID: 6279251613177683678, guid: 72b4b999a79ad944eb59cde4fcb0a082, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6279251613177683679, guid: 72b4b999a79ad944eb59cde4fcb0a082, type: 3}
       propertyPath: m_RootOrder
       value: 1

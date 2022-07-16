@@ -17,13 +17,12 @@ public class Tile : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        UpdateVisuals(Data.IsDeleted);
     }
 
     // Update is called once per frame
     public void Update()
     {
-        
+        UpdateVisuals(Data.IsDeleted);
     }
 
     public void UpdateVisuals(bool shouldDelete = false)
@@ -39,8 +38,8 @@ public class Tile : MonoBehaviour
 
 public static class TileUtils
 {
-    private static float width = 0.65f;
-    private static float height = 0.35f;
+    private static float width = 0.45f;
+    private static float height = 0.23f;
 
     public static Vector2 GetPosition(TileData tileData)
     {
