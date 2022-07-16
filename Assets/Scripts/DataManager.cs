@@ -27,6 +27,19 @@ public class DataManager : MonoBehaviour
     public void LoadNext()
     {
         levelValue++;
+        try
+        {
+            LoadGame();
+        }
+        catch
+        {
+            LoadFirst();
+        }
+    }
+
+    public void LoadFirst()
+    {
+        levelValue = 1;
         LoadGame();
     }
 
