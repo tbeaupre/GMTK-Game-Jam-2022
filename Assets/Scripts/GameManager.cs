@@ -28,8 +28,13 @@ public class GameManager : MonoBehaviour
                 if (target.TryGetComponent<Tile>(out var tile))
                 {
                     var tileData = tile.Data;
-                    dataManager.Grid.ToggleTile(tileData.A, tileData.B, tileData.C);
-                    tile.UpdateVisuals(!tileData.IsDeleted);
+                    TileData newTileData;
+                    if (tileData.Goal == 8 || tileData.IsDeleted)
+                        newTileData = dataManager.Grid.ToggleTile(tileData.A, tileData.B, tileData.C);
+                    else
+                        newTileData = dataManager.Grid.IncrementGoal(tileData.A, tileData.B, tileData.C);
+
+                    tile.UpdateVisuals(newTileData.IsDeleted, newTileData.Goal);
                 }
             }
         }

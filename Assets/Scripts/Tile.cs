@@ -6,6 +6,7 @@ public class Tile : MonoBehaviour
 {
     [SerializeField]
     public TileData Data;
+    public Sprite[] sprites;
 
     private SpriteRenderer spriteRenderer;
 
@@ -22,16 +23,19 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        UpdateVisuals(Data.IsDeleted);
+        UpdateVisuals(Data.IsDeleted, Data.Goal);
     }
 
-    public void UpdateVisuals(bool shouldDelete = false)
+    public void UpdateVisuals(bool shouldDelete = false, int goal = 0)
     {
         Data.IsDeleted = shouldDelete;
-        spriteRenderer.enabled = !Data.IsDeleted;
+        Data.Goal = goal;
 
         transform.position = TileUtils.GetPosition(Data);
         transform.localEulerAngles = new Vector3(0, 0, Data.PointsUp ? 0 : 180);
+
+        spriteRenderer.enabled = !Data.IsDeleted;
+        spriteRenderer.sprite = sprites[Data.Goal];
     }
 }
 
