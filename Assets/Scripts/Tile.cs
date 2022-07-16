@@ -11,11 +11,7 @@ public class Tile : MonoBehaviour
     public void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    // Start is called before the first frame update
-    public void Start()
-    {
+        UpdateVisuals();
     }
 
     // Update is called once per frame

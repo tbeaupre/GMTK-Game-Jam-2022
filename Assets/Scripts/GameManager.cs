@@ -12,19 +12,19 @@ public class GameManager : MonoBehaviour
 
     private GameObject playerObject;
     private List<GameObject> tileRefs = new List<GameObject>();
+    private List<GameObject> oldRefs = new List<GameObject>();
     private TriangleGrid activeMap;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
         Init();
     }
 
     private void Init()
     {
-        foreach(GameObject tile in tileRefs) Object.Destroy(tile);
         activeMap = dataManager.GetInitialGrid();
+        oldRefs = tileRefs;
         tileRefs = tileFactory.DrawTiles(activeMap).ToList();
         playerObject = Instantiate(playerPrefab);
         player = playerObject.GetComponent<Player>();
@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CleanUpTiles();
         if (isDebugMode && Input.GetMouseButtonDown(0))
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
@@ -63,6 +64,12 @@ public class GameManager : MonoBehaviour
             player.enabled = false;
             Init();
         }
+    }
+
+    private void CleanUpTiles()
+    {
+        foreach (GameObject tile in oldRefs) Destroy(tile);
+        oldRefs.Clear();
     }
 
     private bool IsWin => player.GetOppositeSide() == activeMap.GetTileData(player.tile)?.Goal;
