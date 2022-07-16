@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             dataManager.SaveGame(player);
         }
 
-        if (player.GetOppositeSide() == dataManager.Grid.GetTileData(player.a, player.b, player.c)?.Goal)
+        if (IsWin)
         {
             Debug.Log("WIN!");
         }
@@ -58,6 +58,8 @@ public class GameManager : MonoBehaviour
             Init();
         }
     }
+
+    private bool IsWin => player.GetOppositeSide() == dataManager.Grid.GetTileData(player.a, player.b, player.c)?.Goal;
 
     private void HandleTileClick(Tile tile)
     {
