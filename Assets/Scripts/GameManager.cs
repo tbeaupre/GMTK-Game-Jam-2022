@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public DataManager dataManager;
     public TileFactory tileFactory;
+    public Player player;
     public bool isDebugMode;
 
     // Start is called before the first frame update
@@ -13,6 +12,7 @@ public class GameManager : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         tileFactory.DrawTiles(dataManager.Grid);
+        player.Init(dataManager.PlayerData);
     }
 
     // Update is called once per frame
@@ -37,6 +37,11 @@ public class GameManager : MonoBehaviour
                     tile.UpdateVisuals(newTileData.IsDeleted, newTileData.Goal);
                 }
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            dataManager.SaveGame(player);
         }
     }
 }

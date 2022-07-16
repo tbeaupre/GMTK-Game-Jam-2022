@@ -32,7 +32,6 @@ public class AudioManager : MonoBehaviour
 
     private AudioClip[] GetClips(string prefix)
     {
-        ArrayList al = new ArrayList();
         var path = Application.dataPath + "/SFX";
         string[] sfx_files = Directory.GetFiles(path).Where(f => f.Contains(prefix) && f.EndsWith(".wav")).ToArray();
         return sfx_files
@@ -40,7 +39,6 @@ public class AudioManager : MonoBehaviour
             .Select(f => AssetDatabase.LoadAssetAtPath(f, typeof(AudioClip)) as AudioClip)
             .ToArray();
     }
-
 }
 
 public enum SFX_TYPE

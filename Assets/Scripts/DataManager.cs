@@ -1,47 +1,51 @@
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
 {
     public TriangleGrid Grid;
+    public SerializedPlayerData PlayerData;
     public string levelName;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadGrid();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
+        try
         {
-            SaveGrid();
+            LoadGame();
+        }
+        catch
+        {
+            LoadDefault();
         }
     }
 
-    public TriangleGrid LoadGrid()
+    public void LoadGame()
     {
         string path = Application.dataPath + "/Maps/" + levelName + ".json";
         if (!File.Exists(path))
         {
             Debug.LogWarning("Data file not found at: " + path);
-            Grid = new TriangleGrid(3);
-            return Grid;
+            LoadDefault();
+            return;
         }
 
         string fileContents = File.ReadAllText(path);
-        SerializableTileGrid tileGrid = JsonUtility.FromJson<SerializableTileGrid>(fileContents);
-        Grid = new TriangleGrid(tileGrid);
-        return Grid;
+        SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(fileContents);
+        PlayerData = mapData.playerData;
+        Grid = new TriangleGrid(mapData.tiles.ToList());
     }
 
-    void SaveGrid()
+    private void LoadDefault()
     {
-        string jsonData = JsonUtility.ToJson(new SerializableTileGrid(Grid), true);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/" + levelName + ".json", jsonData);
+        Grid = new TriangleGrid(3);
+        PlayerData = new SerializedPlayerData(new Player());
+    }
+
+    public void SaveGame(Player player)
+    {
+        string jsonData = JsonUtility.ToJson(new SerializedGameData(Grid, player), true);
+        File.WriteAllText(Application.persistentDataPath + "/" + levelName + ".json", jsonData);
     }
 }
