@@ -11,18 +11,11 @@ public class TriangleGrid
         var bounds = Enumerable.Range(-radius, radius * 2).ToList();
 
         foreach (int a in bounds)
+        foreach (int b in bounds)
+        foreach (int c in bounds)
         {
-            foreach (int b in bounds)
-            {
-                foreach (int c in bounds)
-                {
-                    var tile = new TileData(a, b, c);
-                    if (tile.IsValid)
-                    {
-                        Tiles.Add(tile);
-                    }
-                }
-            }
+            var tile = new TileData(a, b, c);
+            if (tile.IsValid) Tiles.Add(tile);
         }
     }
     public TriangleGrid(List<TileData> tiles)
@@ -32,7 +25,6 @@ public class TriangleGrid
 
     public TileData GetTileData(TileData tileData) => Tiles.FirstOrDefault(t => t.PositionalMatch(tileData));
     public TileData GetTileData(int a, int b, int c) => Tiles.FirstOrDefault(t => t.PositionalMatch(a, b, c));
-
     public IEnumerable<TileData> GetNeighbors(int a, int b, int c) => GetNeighbors(new TileData(a, b, c));
 
     // Probably want to ToList() this as it does not materialize
@@ -81,16 +73,8 @@ public class TileData
         Goal = data.Goal;
     }
 
-    public bool PositionalMatch(int a, int b, int c)
-    {
-        return a == A && b == B && c == C;
-    }
-
-    public bool PositionalMatch(TileData tile)
-    {
-        return PositionalMatch(tile.A, tile.B, tile.C);
-    }
-
+    public bool PositionalMatch(int a, int b, int c) => a == A && b == B && c == C;
+    public bool PositionalMatch(TileData tile) => PositionalMatch(tile.A, tile.B, tile.C);
     public bool PointsUp => A + B + C == 2;
     public bool IsValid => A + B + C == 2 || A + B + C == 1;
 }

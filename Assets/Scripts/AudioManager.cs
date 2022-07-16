@@ -6,7 +6,7 @@ using UnityEditor;
 using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
-    public AudioSource SFXSource;
+    public List<AudioSource> SFXSources;
     private Dictionary<SFX_TYPE, AudioClip[]> SFXClips;
 
     public const string SFX_CLUNK = "clunk";
@@ -15,7 +15,12 @@ public class AudioManager : MonoBehaviour
 
     public void Start()
     {
-        SFXSource = gameObject.AddComponent(typeof(AudioSource)) as AudioSource;
+        SFXSources = new List<AudioSource> {
+            gameObject.AddComponent(typeof(AudioSource)) as AudioSource,
+            gameObject.AddComponent(typeof(AudioSource)) as AudioSource,
+            gameObject.AddComponent(typeof(AudioSource)) as AudioSource
+        };
+
         SFXClips = new Dictionary<SFX_TYPE, AudioClip[]> {
             {SFX_TYPE.CLUNK,  GetClips(SFX_CLUNK)},
             {SFX_TYPE.CLINK,  GetClips(SFX_CLINK)},
@@ -25,9 +30,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(SFX_TYPE type)
     {
+        var source = SFXSources.FirstOrDefault(s => !s.isPlaying);
+        if (source == null) return;
         var pool = SFXClips[type];
-        SFXSource.clip = pool[Random.Range(0, pool.Count())];
-        SFXSource.Play();
+        source.clip = pool[Random.Range(0, pool.Count())];
+        source.Play();
     }
 
     private AudioClip[] GetClips(string prefix)
