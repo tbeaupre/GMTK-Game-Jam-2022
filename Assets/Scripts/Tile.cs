@@ -9,20 +9,33 @@ public class Tile : MonoBehaviour
 
     private const float sqrtOfThree = 1.73205080757f;
     private const float squishFactor = 1.2777f;
+    private SpriteRenderer spriteRenderer;
+
+    public void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
     // Start is called before the first frame update
     public void Start()
     {
-        transform.position = Center();
-        if (!Data.PointsUp)
-        {
-            transform.Rotate(new Vector3(0, 0, 180));
-        }
+        UpdateVisuals();
     }
 
     // Update is called once per frame
     public void Update()
     {
         
+    }
+
+    public void UpdateVisuals(bool shouldDelete = false)
+    {
+        Debug.Log($"Updating Visuals: {Data.IsDeleted} {shouldDelete}");
+        Data.IsDeleted = shouldDelete;
+        spriteRenderer.enabled = !Data.IsDeleted;
+
+        transform.position = Center();
+        transform.localEulerAngles = new Vector3(0, 0, Data.PointsUp ? 0 : 180);
     }
 
     private Vector2 Center()
