@@ -37,8 +37,8 @@ public class Tile : MonoBehaviour
 
 public static class TileUtils
 {
-    private static float width = 0.45f;
-    private static float height = 0.23f;
+    private static float width = 0.47f;
+    private static float height = 0.25f;
 
     public static Vector2 GetPosition(TileData tileData)
     {
