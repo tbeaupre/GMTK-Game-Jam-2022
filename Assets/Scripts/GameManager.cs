@@ -124,5 +124,10 @@ public class GameManager : MonoBehaviour
         {
             dataManager.SaveGame(activeMap, player);
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            dataManager.SaveGame(activeMap);
+        }
     }
 }

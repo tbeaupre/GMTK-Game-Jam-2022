@@ -11,6 +11,12 @@ public class SerializedGameData
         tiles = grid.Tiles.ToArray();
         playerData = new SerializedPlayerData(player);
     }
+
+    public SerializedGameData(TriangleGrid grid, SerializedPlayerData playerData)
+    {
+        tiles = grid.Tiles.ToArray();
+        this.playerData = playerData;
+    }
 }
 
 [Serializable]

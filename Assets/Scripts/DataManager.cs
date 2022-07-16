@@ -49,6 +49,14 @@ public class DataManager : MonoBehaviour
         LoadGame();
     }
 
+    public void SaveGame(TriangleGrid grid)
+    {
+        Debug.Log($"Saving map data to {MapPath}...");
+        string jsonData = JsonUtility.ToJson(new SerializedGameData(grid, PlayerData), true);
+        File.WriteAllText(MapPath, jsonData);
+        LoadGame();
+    }
+
     public TriangleGrid GetInitialGrid()
     {
         if (initialTiles != null) return new TriangleGrid(initialTiles.Select(t => new TileData(t)).ToList());
