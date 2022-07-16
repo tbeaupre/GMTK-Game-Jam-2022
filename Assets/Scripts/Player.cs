@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public int a = 4;
+    public int b = -7;
+    public int c = 4;
+
     public int side;
     public int sideRotation;
     public bool isUpsideDown;
@@ -18,7 +22,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdatePosition();
     }
 
     // Update is called once per frame
@@ -92,7 +96,6 @@ public class Player : MonoBehaviour
         };
     }
 
-
     void ChangeFrame(int x, int y)
     {
         int correctedY = y switch {
@@ -104,5 +107,11 @@ public class Player : MonoBehaviour
             _ => 1
         };
         spriteRenderer.sprite = sprites[correctedY * 8 + x - 1];
+    }
+
+    void UpdatePosition()
+    {
+        Vector2 pos2d = TileUtils.GetPosition(new TileData(a, b, c));
+        transform.position = new Vector3(pos2d.x, pos2d.y, -1);
     }
 }
