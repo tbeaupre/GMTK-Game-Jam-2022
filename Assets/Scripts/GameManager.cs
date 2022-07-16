@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject playerPrefab;
     public DataManager dataManager;
     public TileFactory tileFactory;
     public Player player;
     public bool isDebugMode;
 
+    private GameObject playerObject;
     private List<GameObject> tileRefs = new List<GameObject>();
     private TriangleGrid activeMap;
 
@@ -24,6 +26,8 @@ public class GameManager : MonoBehaviour
         foreach(GameObject tile in tileRefs) Object.Destroy(tile);
         activeMap = dataManager.GetInitialGrid();
         tileRefs = tileFactory.DrawTiles(activeMap).ToList();
+        playerObject = Instantiate(playerPrefab);
+        player = playerObject.GetComponent<Player>();
         player.Init(dataManager.PlayerData);
     }
 
@@ -55,6 +59,8 @@ public class GameManager : MonoBehaviour
         }
 
         if (IsPlayerDead()) {
+            playerObject.AddComponent<DyingPlayer>();
+            player.enabled = false;
             Init();
         }
     }

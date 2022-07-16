@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 
     private void Awake()
     {
+        AudioMgmt = GetComponent<AudioManager>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
