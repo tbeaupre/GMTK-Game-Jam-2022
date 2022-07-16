@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public int a = 1;
-    public int b = 1;
-    public int c = 0;
+    public TileData tile;
 
     public int side = 1;
     public int sideRotation = 1;
@@ -28,7 +26,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var PointsDown = GetTileData.PointsUp; // its going to be the opposite of whatever tile it's on
+        var PointsDown = tile.PointsUp; // its going to be the opposite of whatever tile it's on
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             side = RotateInDirection(side, sideRotation, 0);
@@ -73,22 +71,22 @@ public class Player : MonoBehaviour
         switch (direction)
         {
             case 0:
-                ++b;
+                ++tile.B;
                 break;
             case 1:
-                --c;
+                --tile.C;
                 break;
             case 2:
-                ++a;
+                ++tile.A;
                 break;
             case 3:
-                --b;
+                --tile.B;
                 break;
             case 4:
-                ++c;
+                ++tile.C;
                 break;
             case 5:
-                --a;
+                --tile.A;
                 break;
         }
 
@@ -159,22 +157,21 @@ public class Player : MonoBehaviour
 
     void UpdatePosition()
     {
-        var tileData = new TileData(a, b, c);
-        Vector2 pos2d = TileUtils.GetPosition(tileData);
+        Vector2 pos2d = TileUtils.GetPosition(tile);
         transform.position = new Vector3(pos2d.x, pos2d.y, -1);
     }
+
     public void Init(int side, int rotation, TileData tile)
     {
         this.side = side;
         this.sideRotation = rotation;
-        (a, b, c) = (tile.A, tile.B, tile.C);
+        this.tile = new TileData(tile);
     }
+
     public void Init(SerializedPlayerData playerData)
     {
         this.side = playerData.side;
         this.sideRotation = playerData.rotation;
-        (a, b, c) = (playerData.tile.A, playerData.tile.B, playerData.tile.C);
+        this.tile = new TileData(playerData.tile);
     }
-
-    public TileData GetTileData => new TileData(a, b, c);
 }

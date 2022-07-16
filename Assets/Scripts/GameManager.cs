@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
             dataManager.SaveGame(player);
         }
 
-        if (player.GetOppositeSide() == dataManager.Grid.GetTileData(player.a, player.b, player.c)?.Goal)
+        if (player.GetOppositeSide() == dataManager.Grid.GetTileData(player.tile)?.Goal)
         {
             Debug.Log("WIN!");
         }
@@ -82,8 +82,7 @@ public class GameManager : MonoBehaviour
 
     bool IsPlayerDead()
     {
-        var playerTile = player.GetTileData;
-        var boardTile = dataManager.Grid.GetTileData(playerTile.A, playerTile.B, playerTile.C);
+        var boardTile = dataManager.Grid.GetTileData(player.tile);
         return boardTile == null || boardTile.IsDeleted;
     }
 }

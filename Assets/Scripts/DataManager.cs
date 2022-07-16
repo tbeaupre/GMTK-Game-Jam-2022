@@ -32,7 +32,7 @@ public class DataManager : MonoBehaviour
 
     private void LoadDefault()
     {
-        PlayerData = new SerializedPlayerData(new Player());
+        PlayerData = new SerializedPlayerData();
         Grid = new TriangleGrid(3);
     }
 

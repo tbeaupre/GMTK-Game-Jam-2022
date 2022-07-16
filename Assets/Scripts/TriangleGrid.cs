@@ -72,6 +72,15 @@ public class TileData
         Goal = goal % 8;
     }
 
+    public TileData(TileData data)
+    {
+        A = data.A;
+        B = data.B;
+        C = data.C;
+        IsDeleted = data.IsDeleted;
+        Goal = data.Goal;
+    }
+
     public bool PositionalMatch(int a, int b, int c)
     {
         return a == A && b == B && c == C;

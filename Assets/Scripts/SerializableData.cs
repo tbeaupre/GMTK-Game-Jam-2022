@@ -20,9 +20,16 @@ public class SerializedPlayerData
     public int side;
     public int rotation;
 
+    public SerializedPlayerData()
+    {
+        tile = new TileData(1, 1, 0);
+        side = 1;
+        rotation = 1;
+    }
+
     public SerializedPlayerData(Player player)
     {
-        tile = player.GetTileData;
+        tile = player.tile;
         side = player.side;
         rotation = player.sideRotation;
     }
