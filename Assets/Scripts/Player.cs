@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
         if ((rotation + direction) % 2 == 1)
             return side;
 
-        AudioMgmt.PlaySFX();
+        AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
 
         switch (direction)
         {
