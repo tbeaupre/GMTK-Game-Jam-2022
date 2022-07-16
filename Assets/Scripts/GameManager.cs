@@ -34,25 +34,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         CleanUpTiles();
-        if (isDebugMode && Input.GetMouseButtonDown(0))
-        {
-            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-
-            if (hit.collider && hit.transform != null)
-            {
-                GameObject target = hit.transform.gameObject;
-                if (target.TryGetComponent<Tile>(out var tile))
-                {
-                    HandleTileClick(tile);
-                }
-            }
-        }
-
-        if (Input.GetKeyDown(KeyCode.S) && isDebugMode)
-        {
-            dataManager.SaveGame(activeMap, player);
-        }
-
+        if (isDebugMode) HandleDebugFunctions();
         if (IsWin)
         {
             Debug.Log("WIN!");
@@ -94,12 +76,32 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftShift)) tile.Data.Goal = player.GetOppositeSide();
     }
 
-    bool IsPlayerDead()
+    private bool IsPlayerDead()
     {
-        if (!player.enabled)
-            return false;
-
+        if (!player.enabled) return false;
         var boardTile = activeMap.GetTileData(player.tile);
         return boardTile == null || boardTile.IsDeleted;
+    }
+
+    private void HandleDebugFunctions()
+    {
+        if (Input.GetMouseButton(0))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+
+            if (hit.collider && hit.transform != null)
+            {
+                GameObject target = hit.transform.gameObject;
+                if (target.TryGetComponent<Tile>(out var tile))
+                {
+                    HandleTileClick(tile);
+                }
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            dataManager.SaveGame(activeMap, player);
+        }
     }
 }
