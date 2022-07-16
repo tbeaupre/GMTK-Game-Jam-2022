@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Tile : MonoBehaviour
 {
@@ -14,7 +15,6 @@ public class Tile : MonoBehaviour
         transform.position = Center();
         if (!Data.PointsUp)
         {
-            Debug.Log($"{Data.A}, {Data.B}, {Data.C}");
             transform.Rotate(new Vector3(0, 0, 180));
         }
     }
@@ -22,6 +22,7 @@ public class Tile : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
+        
     }
 
     private Vector2 Center()
@@ -32,6 +33,5 @@ public class Tile : MonoBehaviour
             y = (-sqrtOfThree / 6 * Data.A + sqrtOfThree / 3 * Data.B - sqrtOfThree / 6 * Data.C) * EdgeLength 
         };
     }
-
     private float EdgeLength => transform.localScale.x * 0.24f; // arbitrary spacing factor. feel free to mess w this
 }
