@@ -5,6 +5,7 @@ using UnityEngine;
 public class DataManager : MonoBehaviour
 {
     public TriangleGrid Grid;
+    public int DefaultMapRadius;
     public SerializedPlayerData PlayerData;
     public string levelName;
 
@@ -33,7 +34,7 @@ public class DataManager : MonoBehaviour
     private void LoadDefault()
     {
         PlayerData = new SerializedPlayerData();
-        Grid = new TriangleGrid(3);
+        Grid = new TriangleGrid(DefaultMapRadius);
     }
 
     public void SaveGame(Player player)

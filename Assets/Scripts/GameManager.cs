@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKey(KeyCode.Alpha6)) tile.Data.Goal = 6;
         if (Input.GetKey(KeyCode.Alpha7)) tile.Data.Goal = 7;
         if (Input.GetKey(KeyCode.Alpha8)) tile.Data.Goal = 8;
-
+        if (Input.GetKey(KeyCode.LeftShift)) tile.Data.Goal = player.GetOppositeSide();
     }
 
     bool IsPlayerDead()

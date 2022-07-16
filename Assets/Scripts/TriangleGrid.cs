@@ -8,14 +8,19 @@ public class TriangleGrid
     public List<TileData> Tiles { get; set; } = new List<TileData>();
     public TriangleGrid(int radius)
     {
-        var bounds = Enumerable.Range(-radius, radius * 2).ToList();
+        var bounds = Enumerable.Range(-radius * 2, radius * 4).ToList();
 
         foreach (int a in bounds)
         foreach (int b in bounds)
         foreach (int c in bounds)
         {
-            var tile = new TileData(a, b, c);
-            if (tile.IsValid) Tiles.Add(tile);
+            var abc = new List<int> { a, b, c };
+            var isDeleted = abc.Select(v => Math.Abs(v)).Max() > radius;
+            var tile = new TileData(a, b, c, isDeleted);
+            if (tile.IsValid)
+            {
+                Tiles.Add(tile);
+            }
         }
     }
     public TriangleGrid(List<TileData> tiles)
