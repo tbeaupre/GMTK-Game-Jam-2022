@@ -31,6 +31,7 @@ public class TriangleGrid
     public TileData GetTileData(TileData tileData) => Tiles.FirstOrDefault(t => t.PositionalMatch(tileData));
     public TileData GetTileData(int a, int b, int c) => Tiles.FirstOrDefault(t => t.PositionalMatch(a, b, c));
     public IEnumerable<TileData> GetNeighbors(int a, int b, int c) => GetNeighbors(new TileData(a, b, c));
+    public IEnumerable<TileData> GetRemainingColoredTiles() => Tiles.Where(t => t.IsColored && !t.IsDeleted);
 
     // Probably want to ToList() this as it does not materialize
     public IEnumerable<TileData> GetNeighbors(TileData tile)
@@ -80,6 +81,8 @@ public class TileData
 
     public bool PositionalMatch(int a, int b, int c) => a == A && b == B && c == C;
     public bool PositionalMatch(TileData tile) => PositionalMatch(tile.A, tile.B, tile.C);
+
     public bool PointsUp => A + B + C == 2;
     public bool IsValid => A + B + C == 2 || A + B + C == 1;
+    public bool IsColored => Goal != 0;
 }

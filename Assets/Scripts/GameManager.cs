@@ -7,8 +7,10 @@ public class GameManager : MonoBehaviour
     public DataManager dataManager;
     public TileFactory tileFactory;
     public Player player;
-    private List<GameObject> tiles = new List<GameObject>();
     public bool isDebugMode;
+
+    private List<GameObject> tileRefs = new List<GameObject>();
+    private TriangleGrid activeMap;
 
     // Start is called before the first frame update
     void Start()
@@ -19,11 +21,9 @@ public class GameManager : MonoBehaviour
 
     private void Init()
     {
-        foreach(GameObject tile in tiles)
-        {
-            Object.Destroy(tile);
-        }
-        tiles = tileFactory.DrawTiles(dataManager.Grid).ToList();
+        foreach(GameObject tile in tileRefs) Object.Destroy(tile);
+        activeMap = dataManager.GetInitialGrid();
+        tileRefs = tileFactory.DrawTiles(activeMap).ToList();
         player.Init(dataManager.PlayerData);
     }
 
@@ -44,9 +44,9 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) && isDebugMode)
         {
-            dataManager.SaveGame(player);
+            dataManager.SaveGame(activeMap, player);
         }
 
         if (IsWin)
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private bool IsWin => player.GetOppositeSide() == dataManager.Grid.GetTileData(player.tile)?.Goal;
+    private bool IsWin => player.GetOppositeSide() == activeMap.GetTileData(player.tile)?.Goal;
 
     private void HandleTileClick(Tile tile)
     {
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 
     bool IsPlayerDead()
     {
-        var boardTile = dataManager.Grid.GetTileData(player.tile);
+        var boardTile = activeMap.GetTileData(player.tile);
         return boardTile == null || boardTile.IsDeleted;
     }
 }
