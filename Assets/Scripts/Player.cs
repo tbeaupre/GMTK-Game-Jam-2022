@@ -28,7 +28,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var PointsDown = new TileData(a, b, c).PointsUp; // its going to be the opposite of whatever tile it's on
+        var PointsDown = GetTileData.PointsUp; // its going to be the opposite of whatever tile it's on
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             side = RotateInDirection(side, sideRotation, 0);
@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         sideRotation = (sideRotation + 6) % 6;
         ChangeFrame(side, sideRotation);
         transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
-        UpdatePosition(new TileData(a,b,c));
+        UpdatePosition();
     }
 
     int RotateInDirection(int side, int rotation, int direction)
@@ -146,12 +146,18 @@ public class Player : MonoBehaviour
         spriteRenderer.sprite = sprites[correctedY * 8 + x - 1];
     }
 
-    void UpdatePosition(TileData tileData)
+    void UpdatePosition()
     {
+        var tileData = new TileData(a, b, c);
         Vector2 pos2d = TileUtils.GetPosition(tileData);
-        a = tileData.A;
-        b = tileData.B;
-        c = tileData.C;
         transform.position = new Vector3(pos2d.x, pos2d.y, -1);
     }
+    public void Init(int side, int rotation, TileData tile)
+    {
+        this.side = side;
+        this.sideRotation = rotation;
+        (a, b, c) = (tile.A, tile.B, tile.C);
+    }
+
+    public TileData GetTileData => new TileData(a, b, c);
 }
