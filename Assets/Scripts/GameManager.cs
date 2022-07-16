@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
                     var tileData = tile.Data;
                     dataManager.Grid.ToggleTile(tileData.A, tileData.B, tileData.C);
                     tile.UpdateVisuals(!tileData.IsDeleted);
-                    Debug.Log($"{tileData.A}, {tileData.B}, {tileData.C}");
                 }
             }
         }

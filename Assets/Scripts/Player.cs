@@ -29,27 +29,28 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        var PointsDown = new TileData(a, b, c).PointsUp; // its going to be the opposite of whatever tile it's on
+        if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             side = RotateInDirection(side, sideRotation, 0);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha1))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && PointsDown)
         {
             side = RotateInDirection(side, sideRotation, 1);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && !PointsDown)
         {
             side = RotateInDirection(side, sideRotation, 2);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             side = RotateInDirection(side, sideRotation, 3);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && !PointsDown)
         {
             side = RotateInDirection(side, sideRotation, 4);
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.LeftArrow) && PointsDown)
         {
             side = RotateInDirection(side, sideRotation, 5);
         }
@@ -69,7 +70,7 @@ public class Player : MonoBehaviour
         if ((rotation + direction) % 2 == 1)
             return side;
 
-        AudioMgmt.PlaySFX();
+        AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
 
         switch (direction)
         {
