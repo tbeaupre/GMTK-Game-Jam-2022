@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a442304c6c50749be5f2347c881e25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DefaultMapRadius: 2
   PlayerData:
     tile:
       A: 0

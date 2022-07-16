@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DyingPlayer : MonoBehaviour
 {
-    public float scaleShrinkFactor = 0.001f;
-    public float fallSpeed = 0.001f;
+    public float scaleShrinkFactor = 0.01f;
+    public float fallSpeed = 0.01f;
 
     // Update is called once per frame
     void Update()

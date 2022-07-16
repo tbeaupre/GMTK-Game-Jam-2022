@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         _ => 3
     };
 
-    void ChangeFrame(int x, int y)
+    public void ChangeFrame(int x, int y)
     {
         int correctedY = y switch {
             0 => 0,
