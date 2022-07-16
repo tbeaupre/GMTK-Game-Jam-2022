@@ -133,6 +133,17 @@ public class Player : MonoBehaviour
         };
     }
 
+    public int GetOppositeSide() => side switch {
+        1 => 6,
+        2 => 5,
+        3 => 8,
+        4 => 7,
+        5 => 2,
+        6 => 1,
+        7 => 4,
+        _ => 3
+    };
+
     void ChangeFrame(int x, int y)
     {
         int correctedY = y switch {

@@ -43,5 +43,10 @@ public class GameManager : MonoBehaviour
         {
             dataManager.SaveGame(player);
         }
+
+        if (player.GetOppositeSide() == dataManager.Grid.GetTileData(player.a, player.b, player.c)?.Goal)
+        {
+            Debug.Log("WIN!");
+        }
     }
 }
