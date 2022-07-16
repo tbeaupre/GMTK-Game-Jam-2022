@@ -24,29 +24,41 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UpdatePosition();
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
             side = RotateInDirection(side, sideRotation, 0);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
             side = RotateInDirection(side, sideRotation, 1);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
             side = RotateInDirection(side, sideRotation, 2);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
             side = RotateInDirection(side, sideRotation, 3);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
             side = RotateInDirection(side, sideRotation, 4);
+        }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
             side = RotateInDirection(side, sideRotation, 5);
+        }
 
         sideRotation = (sideRotation + 6) % 6;
         ChangeFrame(side, sideRotation);
         isUpsideDown = sideRotation % 2 == 1;
         transform.localEulerAngles = new Vector3(0, 0, isUpsideDown ? 180 : 0);
+        UpdatePosition();
     }
 
     int RotateInDirection(int side, int rotation, int direction)
@@ -58,6 +70,28 @@ public class Player : MonoBehaviour
             return side;
 
         AudioMgmt.PlaySFX();
+
+        switch (direction)
+        {
+            case 0:
+                ++b;
+                break;
+            case 1:
+                --c;
+                break;
+            case 2:
+                ++a;
+                break;
+            case 3:
+                --b;
+                break;
+            case 4:
+                ++c;
+                break;
+            case 5:
+                --a;
+                break;
+        }
 
         if (((direction - rotation + 6) % 6) == 0)
         {
