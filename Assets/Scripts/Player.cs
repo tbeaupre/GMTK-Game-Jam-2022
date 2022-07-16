@@ -11,7 +11,9 @@ public class Player : MonoBehaviour
     public int side;
     public int sideRotation;
     public bool isUpsideDown;
+    public AudioManager AudioMgmt;
     public Sprite[] sprites;
+
     private SpriteRenderer spriteRenderer;
 
     private void Awake()
@@ -54,6 +56,8 @@ public class Player : MonoBehaviour
         // Don't do anything if face is pressed
         if ((rotation + direction) % 2 == 1)
             return side;
+
+        AudioMgmt.PlaySFX();
 
         if (((direction - rotation + 6) % 6) == 0)
         {
