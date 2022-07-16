@@ -28,7 +28,6 @@ public class Tile : MonoBehaviour
 
     public void UpdateVisuals(bool shouldDelete = false)
     {
-        Debug.Log($"Updating Visuals: {Data.IsDeleted} {shouldDelete}");
         Data.IsDeleted = shouldDelete;
         spriteRenderer.enabled = !Data.IsDeleted;
 
