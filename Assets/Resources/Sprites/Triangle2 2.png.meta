@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b174aac5eff97c64e81d1aca00415db0
+guid: 476bc1a46a818724185f35d4eb9cb80a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -104,7 +104,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Triangle2 1_0
+      name: Triangle2 2_0
       rect:
         serializedVersion: 2
         x: 0
@@ -118,14 +118,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed7d3f6e45adbf640b8c002a4af57618
-      internalID: 48090166
+      spriteID: 00f503413bb3c7049b9879fa1974a63c
+      internalID: 1007242439
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_1
+      name: Triangle2 2_1
       rect:
         serializedVersion: 2
         x: 47
@@ -139,14 +139,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ed548d46de44b4aa66d822c5ba09d1
-      internalID: -268375953
+      spriteID: 27c40432d70e3114fa9eea0dc5c80ba4
+      internalID: 982486344
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_2
+      name: Triangle2 2_2
       rect:
         serializedVersion: 2
         x: 94
@@ -160,14 +160,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b71511ba1ec42f24fbc59c3a56f4baee
-      internalID: -638659392
+      spriteID: 6a08978684d66a9439bee8fc43223dbb
+      internalID: 1722702061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_3
+      name: Triangle2 2_3
       rect:
         serializedVersion: 2
         x: 141
@@ -181,14 +181,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f054f4b8273139e47967c5f732ddf8cf
-      internalID: 487406913
+      spriteID: 6b73e47669a6e1140b9bbd1ce5b6a280
+      internalID: -471509114
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_4
+      name: Triangle2 2_4
       rect:
         serializedVersion: 2
         x: 188
@@ -202,14 +202,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ceda15ce7924d7f469706c411d40a7f5
-      internalID: 2144105844
+      spriteID: 299ff3cfd4eac5c44a994a4040cb259d
+      internalID: -1665057321
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_5
+      name: Triangle2 2_5
       rect:
         serializedVersion: 2
         x: 235
@@ -223,14 +223,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8625f90c0942cfb46aa1552e32f19853
-      internalID: -1223680027
+      spriteID: 3b7dd1f644e559c4ab85121326f02cd9
+      internalID: -288938805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_6
+      name: Triangle2 2_6
       rect:
         serializedVersion: 2
         x: 282
@@ -244,14 +244,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 91735ef5cb59f9d438de35e17391862b
-      internalID: -1612223015
+      spriteID: b96cec03975c63c479716537c2e841ce
+      internalID: 2003967881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_7
+      name: Triangle2 2_7
       rect:
         serializedVersion: 2
         x: 329
@@ -265,14 +265,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c65544525a80b07468fb99780fb8624b
-      internalID: -1508000681
+      spriteID: bf9569ed4efc26e4399ee48859ec8e08
+      internalID: -755047159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle2 1_8
+      name: Triangle2 2_8
       rect:
         serializedVersion: 2
         x: 376
@@ -286,8 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b73938eb4bc3dff41b0d8fee08fb9c16
-      internalID: 1289829158
+      spriteID: 07be50603d3e0594398671d7e07e49cf
+      internalID: 1378407434
       vertices: []
       indices: 
       edges: []
@@ -303,15 +303,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Triangle2 1_5: -1223680027
-      Triangle2 1_0: 48090166
-      Triangle2 1_7: -1508000681
-      Triangle2 1_6: -1612223015
-      Triangle2 1_3: 487406913
-      Triangle2 1_1: -268375953
-      Triangle2 1_2: -638659392
-      Triangle2 1_8: 1289829158
-      Triangle2 1_4: 2144105844
+      Triangle2 2_2: 1722702061
+      Triangle2 2_5: -288938805
+      Triangle2 2_7: -755047159
+      Triangle2 2_0: 1007242439
+      Triangle2 2_3: -471509114
+      Triangle2 2_1: 982486344
+      Triangle2 2_8: 1378407434
+      Triangle2 2_6: 2003967881
+      Triangle2 2_4: -1665057321
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

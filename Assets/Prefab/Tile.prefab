@@ -53,15 +53,15 @@ MonoBehaviour:
     IsDeleted: 0
     Goal: 0
   sprites:
-  - {fileID: 48090166, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: -268375953, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: -638659392, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: 487406913, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: 2144105844, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: -1223680027, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: -1612223015, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: -1508000681, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
-  - {fileID: 1289829158, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
+  - {fileID: 1007242439, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: 982486344, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: 1722702061, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: -471509114, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: -1665057321, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: -288938805, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: 2003967881, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: -755047159, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
+  - {fileID: 1378407434, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
 --- !u!212 &7039577907782812401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -103,12 +103,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 48090166, guid: b174aac5eff97c64e81d1aca00415db0, type: 3}
+  m_Sprite: {fileID: 1007242439, guid: 476bc1a46a818724185f35d4eb9cb80a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.23, y: 0.18}
+  m_Size: {x: 0.47, y: 0.36}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -132,7 +132,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.35}
     oldSize: {x: 0.47, y: 0.36}
-    newSize: {x: 0.23, y: 0.18}
+    newSize: {x: 0.47, y: 0.36}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0

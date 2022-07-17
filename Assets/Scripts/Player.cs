@@ -9,15 +9,7 @@ public class Player : MonoBehaviour
     public int side = 1;
     public int sideRotation = 1;
     public AudioManager AudioMgmt;
-    public Sprite[] sprites;
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        AudioMgmt = GetComponent<AudioManager>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    public PlayerAnimator playerAnimator;
 
     // Update is called once per frame
     public void Update()
@@ -29,7 +21,7 @@ public class Player : MonoBehaviour
             AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
             side = nextSide ?? side;
             sideRotation = (sideRotation + 6) % 6;
-            ChangeFrame(side, sideRotation);
+            playerAnimator.SetSprite(side, sideRotation);
             transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
             UpdatePosition();
         }
@@ -129,19 +121,6 @@ public class Player : MonoBehaviour
         7 => 4,
         _ => 3
     };
-
-    public void ChangeFrame(int x, int y)
-    {
-        int correctedY = y switch {
-            0 => 0,
-            1 => 2,
-            2 => 1,
-            3 => 0,
-            4 => 2,
-            _ => 1
-        };
-        spriteRenderer.sprite = sprites[correctedY * 8 + x - 1];
-    }
 
     void UpdatePosition()
     {

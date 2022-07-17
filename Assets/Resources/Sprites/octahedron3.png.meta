@@ -1,0 +1,1178 @@
+fileFormatVersion: 2
+guid: 9c4851fe3e981be4a87b91a02f401b41
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: octahedron3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 662c65b27c7cb314b9ec0e55135fa1c0
+      internalID: 1170185287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_1
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 655d58a797d33534faa4099bded1871a
+      internalID: 1404708905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_2
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d7457c21899ded4bb3dcdd9f20dc5a2
+      internalID: -268528853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_3
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48d92483390a24a4b8d932caaccaea97
+      internalID: 670669050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_4
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a011c2ebbb6a5f243b651bbb56c4d979
+      internalID: 992471995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_5
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dca6b59dc2a9d746b1e03e3a8e7b40d
+      internalID: 274483053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_6
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e2b77e5eaa3ce5478af7ca8f282c474
+      internalID: 676690270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_7
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 335
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb5be414251b164fa150fe975e59ae4
+      internalID: -443649228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 341a25649a008964c9979f0d19ac8d19
+      internalID: -806703117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_9
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b79b10fce7e362f4089b9faccce862fb
+      internalID: -27805659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_10
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b7dd2f9b5531642b37a273647215b7
+      internalID: 407623022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 769deb1701599af469199a3501090192
+      internalID: -1094428171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_12
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed115dbd76e76f4fbfab5846fcffd9b
+      internalID: 2143410974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_13
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d2cbad7df14210418bea8868ca51fa5
+      internalID: 1326712613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_14
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3fd9ff142a9af46b1a37a9c4c3befa
+      internalID: -989057863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_15
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 268
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a99b9f07c18297f4188b3e6350694a80
+      internalID: 1386486542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5a46cee8d92a1b4ab57ae3244b0353f
+      internalID: 1198839145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_17
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf5641487a7da7149a9ccdf4ee80ff85
+      internalID: 1524944992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_18
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 13d9475ba8308914c81cc1c103ce363b
+      internalID: 89495787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_19
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b597cb20efacdf6429629b663e19160e
+      internalID: -55247088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_20
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f0d94b67f4f90c44bb78ee3984aacbd
+      internalID: 372399735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_21
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f63517fe1c79de40b34967852d5b202
+      internalID: 1188526147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_22
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8aae14c632ee04240bc40cd3a0acbaff
+      internalID: 1630225817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_23
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 201
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5712a644a6b3e284baacbf99d3ffd772
+      internalID: -1631438631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 019d39adf4b6beb4aa69b54a830eba2a
+      internalID: 23081565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_25
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ded261cbccd4fe4eb1170811907c803
+      internalID: -1847409532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_26
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 069a24e17ceec4441ab231430a3d4934
+      internalID: 1798458802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_27
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 731cd73eaf6c1624a961932db26a8e33
+      internalID: -1030262768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_28
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 908cbe29d86a56344aca5d770cfef218
+      internalID: -1253772468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_29
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f4fc197002c58343bbc96734a675025
+      internalID: -20633505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_30
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae55565694216234cb4a4688486c32a6
+      internalID: -1089662093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_31
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 134
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0965419daecac524d9ce56afa01f051c
+      internalID: -1820508503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_32
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c0a460a986ae2d45b3029d64a3318fd
+      internalID: 417687837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_33
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0efbdbb180e1e34fb8252c881defca7
+      internalID: 1724733011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_34
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7506cf40a41a194db47f9725faa22a2
+      internalID: 614828642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_35
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b20e811f52468b9499258cf9d22b99fe
+      internalID: -1683710862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_36
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc308b39a17125147adba4187b5fbf7e
+      internalID: 796459527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_37
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49aaac5bdef73fc43bc7e4faf754fb73
+      internalID: 1439328593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_38
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60cb78fe7c4ab904bb0369d83e4193f3
+      internalID: 1956919445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_39
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 67
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a541e5e1ca40a4a45aeb03114e66f631
+      internalID: -1687220541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0dfba1c44fe72294da8466ad28cba5d6
+      internalID: 1448420455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_41
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06dab637975e2a54faeb65791d30f16b
+      internalID: 928852531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_42
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3bbe4f6667b67842bfc649f3b5b9ed8
+      internalID: 294989112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_43
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab82e8b16c8d4642bcc93822f3b6836
+      internalID: -861453311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_44
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffe760b828741674b91334060fee6fd6
+      internalID: -63948258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_45
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf1e200aecfa5b45998cbd1913c4559
+      internalID: 569200788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_46
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5744a4123847cf14ab24fe159cccdcc3
+      internalID: -1859947783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: octahedron3_47
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 47
+        height: 67
+      alignment: 9
+      pivot: {x: 0.5, y: 0.35}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a2c6a95307a9864195a3d79cc316c61
+      internalID: -827637139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      octahedron3_4: 992471995
+      octahedron3_32: 417687837
+      octahedron3_17: 1524944992
+      octahedron3_30: -1089662093
+      octahedron3_6: 676690270
+      octahedron3_22: 1630225817
+      octahedron3_33: 1724733011
+      octahedron3_25: -1847409532
+      octahedron3_5: 274483053
+      octahedron3_45: 569200788
+      octahedron3_36: 796459527
+      octahedron3_38: 1956919445
+      octahedron3_44: -63948258
+      octahedron3_29: -20633505
+      octahedron3_19: -55247088
+      octahedron3_9: -27805659
+      octahedron3_46: -1859947783
+      octahedron3_42: 294989112
+      octahedron3_1: 1404708905
+      octahedron3_27: -1030262768
+      octahedron3_21: 1188526147
+      octahedron3_35: -1683710862
+      octahedron3_13: 1326712613
+      octahedron3_40: 1448420455
+      octahedron3_2: -268528853
+      octahedron3_24: 23081565
+      octahedron3_39: -1687220541
+      octahedron3_47: -827637139
+      octahedron3_41: 928852531
+      octahedron3_16: 1198839145
+      octahedron3_28: -1253772468
+      octahedron3_34: 614828642
+      octahedron3_10: 407623022
+      octahedron3_37: 1439328593
+      octahedron3_11: -1094428171
+      octahedron3_12: 2143410974
+      octahedron3_20: 372399735
+      octahedron3_23: -1631438631
+      octahedron3_14: -989057863
+      octahedron3_31: -1820508503
+      octahedron3_26: 1798458802
+      octahedron3_15: 1386486542
+      octahedron3_7: -443649228
+      octahedron3_43: -861453311
+      octahedron3_3: 670669050
+      octahedron3_0: 1170185287
+      octahedron3_18: 89495787
+      octahedron3_8: -806703117
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
