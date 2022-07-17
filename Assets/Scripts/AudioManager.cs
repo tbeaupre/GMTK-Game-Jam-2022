@@ -7,27 +7,19 @@ public class AudioManager : MonoBehaviour
 {
     public AudioSource[] MusicTrackSources;
     public DataManager dataManager;
-    private List<AudioSource> SFXSources;
-    private Dictionary<SFX_TYPE, AudioClip[]> SFXClips;
+    public List<AudioSource> Clunks;
+    public List<AudioSource> Clinks;
+    public List<AudioSource> FloorBoards;
 
-    public const string SFX_CLUNK = "clunk";
-    public const string SFX_CLINK = "clink";
-    public const string SFX_FLOORBOARD = "floorboard";
+    private Dictionary<SFX_TYPE, List<AudioSource>> SFXLookup;
 
     public void Start()
     {
-        SFXSources = new List<AudioSource> {
-            gameObject.AddComponent(typeof(AudioSource)) as AudioSource,
-            gameObject.AddComponent(typeof(AudioSource)) as AudioSource,
-            gameObject.AddComponent(typeof(AudioSource)) as AudioSource
-        };
-
-        SFXSources.ForEach(sfx => sfx.volume = 0.6f); // we should tone these down a bit
-
-        SFXClips = new Dictionary<SFX_TYPE, AudioClip[]> {
-            {SFX_TYPE.CLUNK,  GetClips(SFX_CLUNK)},
-            {SFX_TYPE.CLINK,  GetClips(SFX_CLINK)},
-            {SFX_TYPE.FLOORBOARD,  GetClips(SFX_FLOORBOARD)},
+        SFXLookup = new Dictionary<SFX_TYPE, List<AudioSource>>
+        {
+            { SFX_TYPE.CLUNK, Clunks},
+            { SFX_TYPE.CLINK, Clinks},
+            { SFX_TYPE.FLOORBOARD, FloorBoards},
         };
     }
 
@@ -59,29 +51,9 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySFX(SFX_TYPE type)
     {
-        var source = SFXSources.FirstOrDefault(s => !s.isPlaying);
-        if (source == null) return;
-        var pool = SFXClips[type];
-        source.clip = pool[Random.Range(0, pool.Count())];
+        var pool = SFXLookup[type];
+        var source = pool.ElementAt(Random.Range(0, pool.Count()));
         source.Play();
-    }
-
-    private AudioClip[] GetClips(string prefix)
-    {
-        var path = Application.dataPath + "/Resources/SFX";
-        Debug.Log(path);
-        string[] sfx_files = Directory.GetFiles(path).Where(f => f.Contains(prefix) && f.EndsWith(".wav")).ToArray();
-        // sfx_files.ToList().ForEach(f => Debug.Log(f));
-        return sfx_files
-            .Select(f => {
-                string s = "SFX" + f.Replace(path, "").Replace(".wav", "").Replace("\\", "/");
-                Debug.Log(s);
-                return s;
-                })
-
-            /*.Select(f => AssetDatabase.LoadAssetAtPath(f, typeof(AudioClip)) as AudioClip)*/
-            .Select(f => Resources.Load<AudioClip>(f))
-            .ToArray();
     }
 }
 
