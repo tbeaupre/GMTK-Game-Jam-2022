@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class SpawnPlayer : MonoBehaviour
 {
-    Player player;
+    public Player player;
     public float scaleShrinkFactor = 0.01f;
     public float fallSpeed = 0.01f;
     public int animationFrames = 180;
     private int currentFrame = 0;
     private SerializedPlayerData playerData;
 
-    void Awake()
-    {
-        player = GetComponent<Player>();
-    }
-
     public Player Init(SerializedPlayerData playerData)
     {
+        player.enabled = false;
         this.playerData = playerData;
         currentFrame = 0;
         Vector2 position = TileUtils.GetPosition(playerData.tile);
@@ -29,7 +25,9 @@ public class SpawnPlayer : MonoBehaviour
 
         if (playerData.tile.PointsUp)
             transform.localEulerAngles = new Vector3(0, 0, 180);
-        player.ChangeFrame(playerData.side, playerData.rotation);
+
+        player.playerAnimator.GetSprites();
+        player.playerAnimator.SetSprite(playerData.side, playerData.rotation);
 
         return player;
     }

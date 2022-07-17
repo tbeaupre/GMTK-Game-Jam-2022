@@ -32,12 +32,15 @@ public class GameManager : MonoBehaviour
         oldRefs = tileRefs;
         tileRefs = tileFactory.DrawTiles(activeMap).ToList();
         playerObject = Instantiate(playerPrefab);
-        player = playerObject.GetComponent<SpawnPlayer>().Init(dataManager.PlayerData);
+        SpawnPlayer spawnPlayer = playerObject.GetComponent<SpawnPlayer>();
+        player = spawnPlayer.Init(dataManager.PlayerData);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!player)
+            player = playerObject.GetComponent<Player>();
         CleanUpTiles();
         if (isDebugMode) HandleDebugFunctions();
         HandlePlayerFunctions();
@@ -136,7 +139,7 @@ public class GameManager : MonoBehaviour
 
     private bool IsPlayerDead()
     {
-        if (!player.enabled) return false;
+        if (player == null || !player.enabled) return false;
         var boardTile = activeMap.GetTileData(player.tile);
         return boardTile == null || boardTile.IsDeleted;
     }

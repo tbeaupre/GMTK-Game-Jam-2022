@@ -8,18 +8,23 @@ public class Player : MonoBehaviour
 
     public int side = 1;
     public int sideRotation = 1;
-    public Sprite[] sprites;
-
-    private SpriteRenderer spriteRenderer;
-
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
+    public AudioManager AudioMgmt;
+    public PlayerAnimator playerAnimator;
 
     // Update is called once per frame
     public void Update()
     {
+        var direction = getDirectionFromInput();
+        var nextSide = direction >= 0 ? RotateInDirection(direction) : null;
+        if (nextSide != null)
+        {
+            AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
+            side = nextSide ?? side;
+            sideRotation = (sideRotation + 6) % 6;
+            playerAnimator.SetSprite(side, sideRotation);
+            transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
+            UpdatePosition();
+        }
     }
 
     public bool TryMove(int direction)
@@ -116,19 +121,6 @@ public class Player : MonoBehaviour
         7 => 4,
         _ => 3
     };
-
-    public void ChangeFrame(int x, int y)
-    {
-        int correctedY = y switch {
-            0 => 0,
-            1 => 2,
-            2 => 1,
-            3 => 0,
-            4 => 2,
-            _ => 1
-        };
-        spriteRenderer.sprite = sprites[correctedY * 8 + x - 1];
-    }
 
     void UpdatePosition()
     {
