@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
@@ -48,6 +49,7 @@ public class DataManager : MonoBehaviour
 
     private void LoadGame()
     {
+        Debug.Log($"Loading from Maps/{MapName}");
         TextAsset jsonObj = Resources.Load<TextAsset>($"Maps/{MapName}");
         gameData = JsonUtility.FromJson<SerializedGameData>(jsonObj.text);
         PlayerData = gameData.playerData;
@@ -94,6 +96,10 @@ public class DataManager : MonoBehaviour
         Debug.Log($"Saving to {MapPath}...");
         string jsonData = JsonUtility.ToJson(new SerializedGameData(grid, player), true);
         File.WriteAllText(MapPath, jsonData);
+        if (File.Exists(ScorePath))
+        {
+            AssetDatabase.ImportAsset($"Assets/Resources/Maps/{MapName}.json");
+        }
         LoadGame();
     }
 

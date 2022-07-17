@@ -130,8 +130,8 @@
             "A": -1,
             "B": 1,
             "C": 1,
-            "IsDeleted": false,
-            "Goal": 5
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": -1,
@@ -200,8 +200,8 @@
             "A": 0,
             "B": 0,
             "C": 2,
-            "IsDeleted": false,
-            "Goal": 8
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": 0,
@@ -271,7 +271,7 @@
             "B": -1,
             "C": 1,
             "IsDeleted": false,
-            "Goal": 1
+            "Goal": 5
         },
         {
             "A": 1,
@@ -298,8 +298,8 @@
             "A": 1,
             "B": 1,
             "C": -1,
-            "IsDeleted": false,
-            "Goal": 5
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": 1,
@@ -396,8 +396,8 @@
             "A": 2,
             "B": 0,
             "C": 0,
-            "IsDeleted": false,
-            "Goal": 4
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": 2,
@@ -549,13 +549,13 @@
     ],
     "playerData": {
         "tile": {
-            "A": 1,
-            "B": 1,
+            "A": 0,
+            "B": 2,
             "C": 0,
             "IsDeleted": false,
             "Goal": 0
         },
-        "side": 1,
-        "rotation": 1
+        "side": 7,
+        "rotation": 3
     }
 }
