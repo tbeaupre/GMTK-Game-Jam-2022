@@ -279,7 +279,7 @@ MonoBehaviour:
     side: 0
     rotation: 0
   levelSetName: Simple
-  levelValue: 1
+  levelValue: 8
 --- !u!4 &474909000
 Transform:
   m_ObjectHideFlags: 0

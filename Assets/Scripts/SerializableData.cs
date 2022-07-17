@@ -5,17 +5,20 @@ public class SerializedGameData
 {
     public TileData[] tiles;
     public SerializedPlayerData playerData;
+    public int BestScore;
 
-    public SerializedGameData(TriangleGrid grid, Player player)
+    public SerializedGameData(TriangleGrid grid, Player player, int score = 0)
     {
         tiles = grid.Tiles.ToArray();
         playerData = new SerializedPlayerData(player);
+        BestScore = score;
     }
 
-    public SerializedGameData(TriangleGrid grid, SerializedPlayerData playerData)
+    public SerializedGameData(TriangleGrid grid, SerializedPlayerData playerData, int score = 0)
     {
         tiles = grid.Tiles.ToArray();
         this.playerData = playerData;
+        BestScore = score;
     }
 }
 

@@ -9,7 +9,9 @@ public class DataManager : MonoBehaviour
     public SerializedPlayerData PlayerData;
     public string levelSetName;
     public int levelValue;
+    public int BestScore;
 
+    private SerializedGameData gameData;
     private List<TileData> initialTiles = null;
     // Start is called before the first frame update
     void Start()
@@ -46,12 +48,24 @@ public class DataManager : MonoBehaviour
     private void LoadGame()
     {
         TextAsset jsonObj = Resources.Load<TextAsset>($"Maps/{levelSetName}_{levelValue}");
-        SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(jsonObj.text);
-        PlayerData = mapData.playerData;
-        initialTiles = mapData.tiles.Where(t => !t.IsDeleted).ToList();
+        gameData = JsonUtility.FromJson<SerializedGameData>(jsonObj.text);
+        PlayerData = gameData.playerData;
+        initialTiles = gameData.tiles.Where(t => !t.IsDeleted).ToList();
+        BestScore = gameData.BestScore;
     }
 
     private void LoadDefault() => PlayerData = new SerializedPlayerData();
+
+    public void SaveScore(int score)
+    {
+        if (score < gameData.BestScore)
+        {
+            Debug.Log($"Saving to {MapPath}...");
+            gameData.BestScore = score;
+            string jsonData = JsonUtility.ToJson(gameData, true);
+            File.WriteAllText(MapPath, jsonData);
+        }
+    }
 
     public void SaveGame(TriangleGrid grid, Player player)
     {

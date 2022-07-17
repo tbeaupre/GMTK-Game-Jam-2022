@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
     public AudioManager AudioMgmt;
     public Player player;
     public bool isDebugMode;
+    public CounterText MoveCounter;
+    public CounterText BestCounter;
 
     private GameObject playerObject;
     private List<GameObject> tileRefs = new List<GameObject>();
@@ -19,6 +21,12 @@ public class GameManager : MonoBehaviour
 
     private TileData goalTileToDelete = null;
     private bool isStarted = false;
+
+    private void Start()
+    {
+        MoveCounter.Mesh.alpha = 0;
+        BestCounter.Mesh.alpha = 0;
+    }
 
     public void Play()
     {
@@ -34,6 +42,8 @@ public class GameManager : MonoBehaviour
         playerObject = Instantiate(playerPrefab);
         SpawnPlayer spawnPlayer = playerObject.GetComponent<SpawnPlayer>();
         player = spawnPlayer.Init(dataManager.PlayerData);
+        MoveCounter.Value = 0;
+        BestCounter.Value = dataManager.BestScore > 0 ? dataManager.BestScore : -1;
     }
 
     // Update is called once per frame
@@ -41,6 +51,9 @@ public class GameManager : MonoBehaviour
     {
         if (!isStarted)
             return;
+        
+        if(MoveCounter.Mesh.alpha < 255) MoveCounter.Mesh.alpha++;
+        if(BestCounter.Mesh.alpha < 255) BestCounter.Mesh.alpha++;
 
         if (!player)
             player = playerObject.GetComponent<Player>();
@@ -63,6 +76,7 @@ public class GameManager : MonoBehaviour
             if (moveSuccess)
             {
                 AudioMgmt.PlaySFX(GetAppropriateSoundEffectForSuchASpecialOccassion());
+                MoveCounter.Value++;
             }
         }
     }
@@ -98,10 +112,16 @@ public class GameManager : MonoBehaviour
         if (isOverGoal) goalTileToDelete = activeTile;
         if (activeMap.GetRemainingColoredTiles().Count() == 1 && isOverGoal)
         {
-            dataManager.LoadNext();
-            Destroy(playerObject);
-            Init();
+            MapComplete();
         }
+    }
+
+    private void MapComplete()
+    {
+        dataManager.SaveScore(MoveCounter.Value);
+        dataManager.LoadNext();
+        Destroy(playerObject);
+        Init();
     }
 
     private void CleanUpTiles()
