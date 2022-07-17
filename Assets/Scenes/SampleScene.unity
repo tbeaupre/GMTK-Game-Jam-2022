@@ -2043,8 +2043,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'roll the die with the arrow keys
 
+    press escape to exit
 
-    press any key to begin'
+
+    press
+    any key to begin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fed859ec89919794c955b06abad493a6, type: 2}
   m_sharedMaterial: {fileID: -3899545639161751876, guid: fed859ec89919794c955b06abad493a6, type: 2}
@@ -2254,7 +2257,7 @@ MonoBehaviour:
   tileFactory: {fileID: 1754934410}
   AudioMgmt: {fileID: 1079201314}
   player: {fileID: 0}
-  isDebugMode: 1
+  isDebugMode: 0
 --- !u!1 &1597626743
 GameObject:
   m_ObjectHideFlags: 0
@@ -2313,7 +2316,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Trollercoaster Tycoon
+  m_text: Octal Ascendency
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fed859ec89919794c955b06abad493a6, type: 2}
   m_sharedMaterial: {fileID: -3899545639161751876, guid: fed859ec89919794c955b06abad493a6, type: 2}
