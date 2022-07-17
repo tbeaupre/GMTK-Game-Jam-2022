@@ -41,7 +41,6 @@ public class PlayerAnimator : MonoBehaviour
 
     IEnumerator RollInDirectionCo(int side, int sideRotation, int direction)
     {
-        Debug.Log($"RollInDirectionCo: {direction}");
         // First Frame;
 
         if (direction == 1 || direction == 4)
