@@ -43,8 +43,11 @@ public class GameManager : MonoBehaviour
             player = playerObject.GetComponent<Player>();
         CleanUpTiles();
         if (isDebugMode) HandleDebugFunctions();
-        HandlePlayerFunctions();
-        HandlePlayerInputs();
+        if (player != null && player.enabled)
+        {
+            HandlePlayerFunctions();
+            HandlePlayerInputs();
+        }
     }
 
     private void HandlePlayerInputs()
