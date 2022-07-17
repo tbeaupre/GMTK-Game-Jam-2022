@@ -21,8 +21,7 @@ public class Player : MonoBehaviour
         if (nextSide < 0) return false;
         side = nextSide;
         sideRotation = (sideRotation + 6) % 6;
-        playerAnimator.SetSprite(side, sideRotation);
-        transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
+        playerAnimator.RollInDirection(side, sideRotation, direction);
         UpdatePosition();
         return true;
     }
