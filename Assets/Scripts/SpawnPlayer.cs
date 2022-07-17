@@ -5,9 +5,9 @@ using UnityEngine;
 public class SpawnPlayer : MonoBehaviour
 {
     public Player player;
-    public float scaleShrinkFactor = 0.01f;
-    public float fallSpeed = 0.01f;
-    public int animationFrames = 180;
+    public static float scaleShrinkFactor = 0.04f;
+    public static float fallSpeed = 0.04f;
+    public int animationFrames = 45;
     private int currentFrame = 0;
     private SerializedPlayerData playerData;
 
@@ -29,11 +29,12 @@ public class SpawnPlayer : MonoBehaviour
         player.playerAnimator.GetSprites();
         player.playerAnimator.SetSprite(playerData.side, playerData.rotation);
 
+        InvokeRepeating("DropFromSky", 0, 4.0f / 600.0f);
+
         return player;
     }
 
-    // Update is called once per frame
-    void Update()
+    void DropFromSky()
     {
         if (++currentFrame == animationFrames)
         {
