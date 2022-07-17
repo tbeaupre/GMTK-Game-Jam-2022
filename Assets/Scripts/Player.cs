@@ -27,26 +27,26 @@ public class Player : MonoBehaviour
         }
     }
 
-    private int getDirectionFromInput()
+    public bool TryMove(int direction)
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow)) return 0;
-        if (Input.GetKeyDown(KeyCode.RightArrow) && PointsDown) return 1;
-        if (Input.GetKeyDown(KeyCode.RightArrow) && !PointsDown) return 2;
-        if (Input.GetKeyDown(KeyCode.DownArrow)) return 3;
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && !PointsDown) return 4;
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && PointsDown) return 5;
-        return -1;
+        var nextSide = RotateInDirection(direction);
+        if (nextSide < 0) return false;
+        side = nextSide;
+        sideRotation = (sideRotation + 6) % 6;
+        ChangeFrame(side, sideRotation);
+        transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
+        UpdatePosition();
+        return true;
     }
+    public bool PointsDown => tile.PointsUp; // its going to be the opposite of whatever tile it's on
 
-    private bool PointsDown => tile.PointsUp; // its going to be the opposite of whatever tile it's on
-
-    int? RotateInDirection(int direction)
+    int RotateInDirection(int direction)
     {
         // Debug.Log($"{side} {rotation} {direction}");
 
         // Don't do anything if face is pressed
         if ((sideRotation + direction) % 2 == 1)
-            return null;
+            return -1;
 
         switch (direction)
         {

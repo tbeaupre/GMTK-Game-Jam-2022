@@ -89,7 +89,7 @@
             "B": 1,
             "C": 0,
             "IsDeleted": false,
-            "Goal": 0
+            "Goal": 3
         },
         {
             "A": 0,
@@ -102,14 +102,14 @@
             "A": 0,
             "B": 2,
             "C": -1,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
             "A": 0,
             "B": 2,
             "C": 0,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
@@ -124,7 +124,7 @@
             "B": -1,
             "C": 1,
             "IsDeleted": false,
-            "Goal": 5
+            "Goal": 3
         },
         {
             "A": 1,
@@ -137,7 +137,7 @@
             "A": 1,
             "B": 0,
             "C": 0,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
@@ -145,7 +145,7 @@
             "B": 0,
             "C": 1,
             "IsDeleted": false,
-            "Goal": 6
+            "Goal": 4
         },
         {
             "A": 1,
@@ -159,7 +159,7 @@
             "B": 1,
             "C": 0,
             "IsDeleted": false,
-            "Goal": 0
+            "Goal": 6
         },
         {
             "A": 1,
@@ -172,7 +172,7 @@
             "A": 1,
             "B": 2,
             "C": -1,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
