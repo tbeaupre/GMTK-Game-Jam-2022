@@ -5,20 +5,17 @@ public class SerializedGameData
 {
     public TileData[] tiles;
     public SerializedPlayerData playerData;
-    public int BestScore;
 
-    public SerializedGameData(TriangleGrid grid, Player player, int score = 0)
+    public SerializedGameData(TriangleGrid grid, Player player)
     {
         tiles = grid.Tiles.ToArray();
         playerData = new SerializedPlayerData(player);
-        BestScore = score;
     }
 
-    public SerializedGameData(TriangleGrid grid, SerializedPlayerData playerData, int score = 0)
+    public SerializedGameData(TriangleGrid grid, SerializedPlayerData playerData)
     {
         tiles = grid.Tiles.ToArray();
         this.playerData = playerData;
-        BestScore = score;
     }
 }
 
@@ -41,5 +38,15 @@ public class SerializedPlayerData
         tile = player.tile;
         side = player.side;
         rotation = player.sideRotation;
+    }
+}
+
+[Serializable]
+public class HighScoreData
+{
+    public int[] Highscores;
+    public HighScoreData(int[] highscores)
+    {
+        Highscores = highscores;
     }
 }

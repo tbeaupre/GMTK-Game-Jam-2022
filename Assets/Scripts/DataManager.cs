@@ -9,15 +9,17 @@ public class DataManager : MonoBehaviour
     public SerializedPlayerData PlayerData;
     public string levelSetName;
     public int levelValue;
-    public int BestScore;
 
+    private int[] highscores;
     private SerializedGameData gameData;
     private List<TileData> initialTiles = null;
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         try
         {
+            LoadScores();
             LoadGame();
         }
         catch
@@ -25,7 +27,6 @@ public class DataManager : MonoBehaviour
             LoadDefault();
         }
     }
-
     public void LoadNext()
     {
         levelValue++;
@@ -47,24 +48,45 @@ public class DataManager : MonoBehaviour
 
     private void LoadGame()
     {
-        TextAsset jsonObj = Resources.Load<TextAsset>($"Maps/{levelSetName}_{levelValue}");
+        TextAsset jsonObj = Resources.Load<TextAsset>($"Maps/{MapName}");
         gameData = JsonUtility.FromJson<SerializedGameData>(jsonObj.text);
         PlayerData = gameData.playerData;
         initialTiles = gameData.tiles.Where(t => !t.IsDeleted).ToList();
-        BestScore = gameData.BestScore;
     }
 
     private void LoadDefault() => PlayerData = new SerializedPlayerData();
 
+    public int BestScore()
+    {
+        if (highscores[levelValue] > 0) return highscores[levelValue];
+        return -1;
+    }
+
+
     public void SaveScore(int score)
     {
-        if (score < gameData.BestScore)
+        if (highscores[levelValue] > 0 && score >= BestScore()) return;
+        highscores[levelValue] = score;
+        string jsonData = JsonUtility.ToJson(new HighScoreData(highscores), true);
+        Debug.Log(jsonData);
+        File.WriteAllText(ScorePath, jsonData);
+    }
+
+    public void LoadScores()
+    {
+        try
         {
-            Debug.Log($"Saving to {MapPath}...");
-            gameData.BestScore = score;
-            string jsonData = JsonUtility.ToJson(gameData, true);
-            File.WriteAllText(MapPath, jsonData);
+            if (File.Exists(ScorePath))
+            {
+                Debug.Log(ScorePath);
+                string jsonString = File.ReadAllText(ScorePath);
+                highscores = JsonUtility.FromJson<HighScoreData>(jsonString).Highscores;
+                if (highscores.Length == 0) highscores = new int[20];
+                return;
+            }
         }
+        catch { }
+        highscores = new int[20];
     }
 
     public void SaveGame(TriangleGrid grid, Player player)
@@ -89,6 +111,8 @@ public class DataManager : MonoBehaviour
         return new TriangleGrid(DefaultMapRadius);
     }
 
-    private string MapPath => $"{Application.dataPath}/Resources/Maps/{levelSetName}_{levelValue}.json";
+    private string MapPath => $"{Application.dataPath}/Resources/Maps/{MapName}.json";
+    private string ScorePath => $"{Application.persistentDataPath}/highscores.json";
+    private string MapName => $"{levelSetName}_{levelValue}";
 
 }

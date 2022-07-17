@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         SpawnPlayer spawnPlayer = playerObject.GetComponent<SpawnPlayer>();
         player = spawnPlayer.Init(dataManager.PlayerData);
         MoveCounter.Value = 0;
-        BestCounter.Value = dataManager.BestScore > 0 ? dataManager.BestScore : -1;
+        BestCounter.Value = dataManager.BestScore() > 0 ? dataManager.BestScore() : -1;
     }
 
     // Update is called once per frame
