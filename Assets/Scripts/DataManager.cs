@@ -45,9 +45,8 @@ public class DataManager : MonoBehaviour
 
     private void LoadGame()
     {
-        Debug.Log($"Loading from {MapPath}...");
-        string fileContents = File.ReadAllText(MapPath);
-        SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(fileContents);
+        TextAsset jsonObj = Resources.Load<TextAsset>($"Maps/{levelSetName}_{levelValue}");
+        SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(jsonObj.text);
         PlayerData = mapData.playerData;
         initialTiles = mapData.tiles.Where(t => !t.IsDeleted).ToList();
     }
