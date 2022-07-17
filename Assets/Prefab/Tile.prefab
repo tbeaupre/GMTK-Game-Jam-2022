@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    A: 0
-    B: 1
+    A: -20
+    B: 22
     C: 0
     IsDeleted: 0
     Goal: 0
