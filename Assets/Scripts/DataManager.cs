@@ -76,6 +76,6 @@ public class DataManager : MonoBehaviour
         return new TriangleGrid(DefaultMapRadius);
     }
 
-    private string MapPath => $"{Application.dataPath}/Maps/{levelSetName}_{levelValue}.json";
+    private string MapPath => $"{Application.dataPath}/Resources/Maps/{levelSetName}_{levelValue}.json";
 
 }
