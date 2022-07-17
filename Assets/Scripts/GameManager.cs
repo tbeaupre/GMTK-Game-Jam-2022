@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
             HandlePlayerFunctions();
             HandlePlayerInputs();
         }
+        if (Input.GetKey(KeyCode.Escape)) Application.Quit();
     }
 
     private void HandlePlayerInputs()
