@@ -18,12 +18,12 @@ public class GameManager : MonoBehaviour
     private TriangleGrid activeMap;
 
     private TileData goalTileToDelete = null;
+    private bool isStarted = false;
 
-
-    // Start is called before the first frame update
-    void Start()
+    public void Play()
     {
         Init();
+        isStarted = true;
     }
 
     private void Init()
@@ -39,6 +39,9 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isStarted)
+            return;
+
         if (!player)
             player = playerObject.GetComponent<Player>();
         CleanUpTiles();
