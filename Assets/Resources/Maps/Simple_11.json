@@ -68,7 +68,7 @@
             "B": 1,
             "C": 2,
             "IsDeleted": true,
-            "Goal": 8
+            "Goal": 0
         },
         {
             "A": -2,
@@ -81,7 +81,7 @@
             "A": -2,
             "B": 2,
             "C": 1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -89,7 +89,7 @@
             "B": 2,
             "C": 2,
             "IsDeleted": true,
-            "Goal": 1
+            "Goal": 0
         },
         {
             "A": -2,
@@ -130,28 +130,28 @@
             "A": -1,
             "B": 1,
             "C": 1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
             "A": -1,
             "B": 1,
             "C": 2,
-            "IsDeleted": false,
-            "Goal": 8
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": -1,
             "B": 2,
             "C": 0,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
             "A": -1,
             "B": 2,
             "C": 1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -193,7 +193,7 @@
             "A": 0,
             "B": 0,
             "C": 1,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
@@ -215,13 +215,13 @@
             "B": 1,
             "C": 1,
             "IsDeleted": false,
-            "Goal": 6
+            "Goal": 0
         },
         {
             "A": 0,
             "B": 2,
             "C": -1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -229,7 +229,7 @@
             "B": 2,
             "C": 0,
             "IsDeleted": false,
-            "Goal": 0
+            "Goal": 8
         },
         {
             "A": 0,
@@ -270,8 +270,8 @@
             "A": 1,
             "B": -1,
             "C": 1,
-            "IsDeleted": true,
-            "Goal": 0
+            "IsDeleted": false,
+            "Goal": 5
         },
         {
             "A": 1,
@@ -284,21 +284,21 @@
             "A": 1,
             "B": 0,
             "C": 0,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
             "A": 1,
             "B": 0,
             "C": 1,
-            "IsDeleted": true,
+            "IsDeleted": false,
             "Goal": 0
         },
         {
             "A": 1,
             "B": 1,
             "C": -1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -312,15 +312,15 @@
             "A": 1,
             "B": 2,
             "C": -2,
-            "IsDeleted": false,
-            "Goal": 7
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": 1,
             "B": 2,
             "C": -1,
-            "IsDeleted": false,
-            "Goal": 2
+            "IsDeleted": true,
+            "Goal": 0
         },
         {
             "A": 1,
@@ -403,14 +403,14 @@
             "A": 2,
             "B": 1,
             "C": -2,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
             "A": 2,
             "B": 1,
             "C": -1,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -424,7 +424,7 @@
             "A": 2,
             "B": 2,
             "C": -2,
-            "IsDeleted": false,
+            "IsDeleted": true,
             "Goal": 0
         },
         {
@@ -549,14 +549,13 @@
     ],
     "playerData": {
         "tile": {
-            "A": -2,
+            "A": 0,
             "B": 2,
-            "C": 1,
+            "C": 0,
             "IsDeleted": false,
             "Goal": 0
         },
-        "side": 6,
-        "rotation": 0
-    },
-    "BestScore": 29
+        "side": 7,
+        "rotation": 3
+    }
 }
