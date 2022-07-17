@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
+// using UnityEditor;
 using UnityEngine;
 
 public class DataManager : MonoBehaviour
@@ -98,7 +98,7 @@ public class DataManager : MonoBehaviour
         File.WriteAllText(MapPath, jsonData);
         if (File.Exists(ScorePath))
         {
-            AssetDatabase.ImportAsset($"Assets/Resources/Maps/{MapName}.json");
+            // AssetDatabase.ImportAsset($"Assets/Resources/Maps/{MapName}.json");
         }
         LoadGame();
     }
