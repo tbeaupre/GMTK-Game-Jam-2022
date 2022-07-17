@@ -49,7 +49,7 @@ public class DataManager : MonoBehaviour
         string fileContents = File.ReadAllText(MapPath);
         SerializedGameData mapData = JsonUtility.FromJson<SerializedGameData>(fileContents);
         PlayerData = mapData.playerData;
-        initialTiles = mapData.tiles.ToList();
+        initialTiles = mapData.tiles.Where(t => !t.IsDeleted).ToList();
     }
 
     private void LoadDefault() => PlayerData = new SerializedPlayerData();

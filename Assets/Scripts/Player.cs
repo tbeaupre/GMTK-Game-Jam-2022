@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 
     public int side = 1;
     public int sideRotation = 1;
-    public AudioManager AudioMgmt;
     public PlayerAnimator playerAnimator;
 
     // Update is called once per frame
