@@ -9,12 +9,16 @@ public class PlayerAnimator : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer;
 
-    private Sprite[] sprites;
+    private static Sprite[] sprites;
     private const int SPRITESHEET_WIDTH = 8;
 
     public void GetSprites()
     {
-        sprites = Resources.LoadAll<Sprite>("Sprites/octahedron3");
+        if (sprites == null)
+        {
+            Debug.Log("Loading Sprites");
+            sprites = Resources.LoadAll<Sprite>("Sprites/octahedron3");
+        }
     }
 
     public void SetSprite(int side, int sideRotation)

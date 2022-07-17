@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
     private SFX_TYPE GetAppropriateSoundEffectForSuchASpecialOccassion()
     {
         var activeTile = activeMap.GetTileData(player.tile);
-        var isOverGoal = player.GetOppositeSide() == activeTile.Goal;
+        var isOverGoal = activeTile != null && player.GetOppositeSide() == activeTile.Goal;
         if (isOverGoal) return SFX_TYPE.CLINK;
         if (IsPlayerDead()) return SFX_TYPE.FLOORBOARD;
         return SFX_TYPE.CLUNK;
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         }
 
         var activeTile = activeMap.GetTileData(player.tile);
-        var isOverGoal = player.GetOppositeSide() == activeTile.Goal;
+        var isOverGoal = activeTile != null && player.GetOppositeSide() == activeTile.Goal;
         if (isOverGoal) goalTileToDelete = activeTile;
         if (activeMap.GetRemainingColoredTiles().Count() == 1 && isOverGoal)
         {

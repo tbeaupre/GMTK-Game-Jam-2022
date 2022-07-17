@@ -14,17 +14,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public void Update()
     {
-        var direction = getDirectionFromInput();
-        var nextSide = direction >= 0 ? RotateInDirection(direction) : null;
-        if (nextSide != null)
-        {
-            AudioMgmt.PlaySFX(SFX_TYPE.CLUNK);
-            side = nextSide ?? side;
-            sideRotation = (sideRotation + 6) % 6;
-            playerAnimator.SetSprite(side, sideRotation);
-            transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
-            UpdatePosition();
-        }
     }
 
     public bool TryMove(int direction)
@@ -33,11 +22,12 @@ public class Player : MonoBehaviour
         if (nextSide < 0) return false;
         side = nextSide;
         sideRotation = (sideRotation + 6) % 6;
-        ChangeFrame(side, sideRotation);
+        playerAnimator.SetSprite(side, sideRotation);
         transform.localEulerAngles = new Vector3(0, 0, PointsDown ? 180 : 0);
         UpdatePosition();
         return true;
     }
+
     public bool PointsDown => tile.PointsUp; // its going to be the opposite of whatever tile it's on
 
     int RotateInDirection(int direction)
