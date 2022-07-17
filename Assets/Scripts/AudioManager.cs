@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using UnityEditor;
 using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
@@ -69,11 +68,19 @@ public class AudioManager : MonoBehaviour
 
     private AudioClip[] GetClips(string prefix)
     {
-        var path = Application.dataPath + "/SFX";
+        var path = Application.dataPath + "/Resources/SFX";
+        Debug.Log(path);
         string[] sfx_files = Directory.GetFiles(path).Where(f => f.Contains(prefix) && f.EndsWith(".wav")).ToArray();
+        // sfx_files.ToList().ForEach(f => Debug.Log(f));
         return sfx_files
-            .Select(f => "Assets/SFX/" + f.Replace(path, ""))
-            .Select(f => AssetDatabase.LoadAssetAtPath(f, typeof(AudioClip)) as AudioClip)
+            .Select(f => {
+                string s = "SFX" + f.Replace(path, "").Replace(".wav", "").Replace("\\", "/");
+                Debug.Log(s);
+                return s;
+                })
+
+            /*.Select(f => AssetDatabase.LoadAssetAtPath(f, typeof(AudioClip)) as AudioClip)*/
+            .Select(f => Resources.Load<AudioClip>(f))
             .ToArray();
     }
 }
