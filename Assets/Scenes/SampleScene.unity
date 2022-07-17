@@ -479,7 +479,6 @@ MonoBehaviour:
     rotation: 0
   levelSetName: Simple
   levelValue: 1
-  BestScore: 0
 --- !u!4 &474909000
 Transform:
   m_ObjectHideFlags: 0
