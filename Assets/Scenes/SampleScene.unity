@@ -2666,7 +2666,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Octal Ascendency
+  m_text: Octal Ascendancy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fed859ec89919794c955b06abad493a6, type: 2}
   m_sharedMaterial: {fileID: -3899545639161751876, guid: fed859ec89919794c955b06abad493a6, type: 2}
